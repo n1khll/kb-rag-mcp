@@ -1,0 +1,802 @@
+[
+  {
+    "query": "My Cisco AnyConnect VPN won't connect on my Windows 11 laptop",
+    "expected_kb_number": "KB-VPN-WIN-ANYCONNECT"
+  },
+  {
+    "query": "GlobalProtect keeps saying connection failed since I updated Windows",
+    "expected_kb_number": "KB-VPN-WIN-GLOBALPROTECT"
+  },
+  {
+    "query": "OpenVPN on my Windows PC says there's no TAP adapter found",
+    "expected_kb_number": "KB-VPN-WIN-OPENVPN-TAP"
+  },
+  {
+    "query": "VPN keeps dropping right after I connect on my Mac",
+    "expected_kb_number": "KB-VPN-MACOS-ANYCONNECT"
+  },
+  {
+    "query": "GlobalProtect on my Mac keeps failing to sign in after the Ventura update",
+    "expected_kb_number": "KB-VPN-MACOS-GLOBALPROTECT"
+  },
+  {
+    "query": "Getting a TLS handshake error trying to connect OpenVPN on Ubuntu",
+    "expected_kb_number": "KB-VPN-LINUX-OPENVPN"
+  },
+  {
+    "query": "VPN disconnects every time I lock my Android phone",
+    "expected_kb_number": "KB-VPN-ANDROID-SCREENLOCK"
+  },
+  {
+    "query": "After updating iOS I can't connect to VPN anymore",
+    "expected_kb_number": "KB-VPN-IOS-PROFILE"
+  },
+  {
+    "query": "The VPN app on my Chromebook just freezes and won't respond",
+    "expected_kb_number": "KB-VPN-CHROMEOS"
+  },
+  {
+    "query": "My VPN says my certificate has expired, how do I renew it",
+    "expected_kb_number": "KB-VPN-CERT-EXPIRED"
+  },
+  {
+    "query": "I'm connected to VPN but I can't reach any internal company sites",
+    "expected_kb_number": "KB-VPN-SPLIT-TUNNEL"
+  },
+  {
+    "query": "VPN is connected but I can't resolve any internal server names",
+    "expected_kb_number": "KB-VPN-DNS-ISSUE"
+  },
+  {
+    "query": "I keep getting asked for MFA again and again right after connecting to VPN",
+    "expected_kb_number": "KB-VPN-MFA-LOOP"
+  },
+  {
+    "query": "My VPN connects fine but everything is really slow over it",
+    "expected_kb_number": "KB-VPN-SLOW-THROUGHPUT"
+  },
+  {
+    "query": "VPN won't let me connect, it says maximum connections reached",
+    "expected_kb_number": "KB-VPN-LICENSE-LIMIT"
+  },
+  {
+    "query": "My VPN account got locked out after I typed my password wrong a few times",
+    "expected_kb_number": "KB-VPN-ACCOUNT-LOCKOUT"
+  },
+  {
+    "query": "VPN only seems to drop when I'm on the office Wi-Fi specifically",
+    "expected_kb_number": "KB-VPN-CORP-WIFI-CONFLICT"
+  },
+  {
+    "query": "My remote desktop connection keeps dropping over VPN if I step away for a bit",
+    "expected_kb_number": "KB-VPN-RDP-TIMEOUT"
+  },
+  {
+    "query": "How do I reset my Windows login password",
+    "expected_kb_number": "KB-PWD-AD-WINDOWS"
+  },
+  {
+    "query": "I forgot my ServiceNow password, how do I reset it",
+    "expected_kb_number": "KB-PWD-SERVICENOW"
+  },
+  {
+    "query": "My Outlook web password isn't working, how do I reset my Microsoft 365 password",
+    "expected_kb_number": "KB-PWD-O365"
+  },
+  {
+    "query": "Where do I go to reset just my VPN password, not my Windows one",
+    "expected_kb_number": "KB-PWD-VPN-ACCOUNT"
+  },
+  {
+    "query": "My work Wi-Fi won't accept my password anymore, how do I fix the Wi-Fi login",
+    "expected_kb_number": "KB-PWD-WIFI-8021X"
+  },
+  {
+    "query": "I need my SQL Server database password reset, who do I contact",
+    "expected_kb_number": "KB-PWD-SQLSERVER"
+  },
+  {
+    "query": "How do I reset my Salesforce login password",
+    "expected_kb_number": "KB-PWD-SALESFORCE"
+  },
+  {
+    "query": "My SAP account is locked, how do I get it unlocked and get a new password",
+    "expected_kb_number": "KB-PWD-SAP"
+  },
+  {
+    "query": "I can't remember my Workday password, how do I reset it",
+    "expected_kb_number": "KB-PWD-WORKDAY"
+  },
+  {
+    "query": "How do I reset my password for the Concur expense tool",
+    "expected_kb_number": "KB-PWD-CONCUR"
+  },
+  {
+    "query": "I forgot the local admin password on my laptop, not my normal login",
+    "expected_kb_number": "KB-PWD-ADMIN-LOCAL"
+  },
+  {
+    "query": "How do I get the password rotated on our team's shared service account",
+    "expected_kb_number": "KB-PWD-SHARED-SERVICE-ACCOUNT"
+  },
+  {
+    "query": "I forgot my phone's passcode, can IT unlock it without wiping everything",
+    "expected_kb_number": "KB-PWD-MOBILE-PASSCODE"
+  },
+  {
+    "query": "I set a BIOS password and forgot it, how do I get back in",
+    "expected_kb_number": "KB-PWD-BIOS"
+  },
+  {
+    "query": "I'm locked out of my Windows Hello PIN, how do I set a new one",
+    "expected_kb_number": "KB-PWD-WINDOWS-HELLO-PIN"
+  },
+  {
+    "query": "How do I reset my GitHub Enterprise login",
+    "expected_kb_number": "KB-PWD-GITHUB-ENTERPRISE"
+  },
+  {
+    "query": "I need to reset my password for Jira and Confluence",
+    "expected_kb_number": "KB-PWD-JIRA-CONFLUENCE"
+  },
+  {
+    "query": "I forgot the admin password to log into our network printer's settings page",
+    "expected_kb_number": "KB-PWD-PRINTER-ADMIN"
+  },
+  {
+    "query": "The network printer isn't responding to any print jobs",
+    "expected_kb_number": "KB-PRINTER-NETWORK-OFFLINE"
+  },
+  {
+    "query": "My USB printer keeps showing as offline even though it's plugged in",
+    "expected_kb_number": "KB-PRINTER-USB-OFFLINE"
+  },
+  {
+    "query": "My printer keeps saying there's a paper jam but there's no paper stuck",
+    "expected_kb_number": "KB-PRINTER-PAPER-JAM-RECURRING"
+  },
+  {
+    "query": "I replaced the toner cartridge but it still says toner is low",
+    "expected_kb_number": "KB-PRINTER-TONER-LOW-PERSISTS"
+  },
+  {
+    "query": "My printouts have streaky lines running down the page",
+    "expected_kb_number": "KB-PRINTER-QUALITY-STREAKS"
+  },
+  {
+    "query": "I can't get my wireless printer to finish connecting to Wi-Fi",
+    "expected_kb_number": "KB-PRINTER-WIRELESS-SETUP-FAILS"
+  },
+  {
+    "query": "How do I install the right printer driver on my Windows computer",
+    "expected_kb_number": "KB-PRINTER-DRIVER-WINDOWS"
+  },
+  {
+    "query": "How do I get the proper printer driver installed on my Mac",
+    "expected_kb_number": "KB-PRINTER-DRIVER-MAC"
+  },
+  {
+    "query": "My printer went offline right after Windows installed an update",
+    "expected_kb_number": "KB-PRINTER-OFFLINE-AFTER-UPDATE"
+  },
+  {
+    "query": "The print spooler service on my computer keeps crashing",
+    "expected_kb_number": "KB-PRINTER-SPOOLER-CRASHED"
+  },
+  {
+    "query": "My print jobs are just stuck in the queue and nothing happens",
+    "expected_kb_number": "KB-PRINTER-QUEUE-STUCK"
+  },
+  {
+    "query": "The scan to email option on our office printer stopped working",
+    "expected_kb_number": "KB-PRINTER-SCAN-TO-EMAIL"
+  },
+  {
+    "query": "Every time I try to print double sided it jams or fails",
+    "expected_kb_number": "KB-PRINTER-DUPLEX-FAILS"
+  },
+  {
+    "query": "I can't find our printer when I search for network printers to add",
+    "expected_kb_number": "KB-PRINTER-NOT-FOUND-NETWORK"
+  },
+  {
+    "query": "My color printouts look totally wrong, the colors are all off",
+    "expected_kb_number": "KB-PRINTER-COLOR-WRONG"
+  },
+  {
+    "query": "I can't print to the office printer from my phone or tablet",
+    "expected_kb_number": "KB-PRINTER-MOBILE-AIRPRINT"
+  },
+  {
+    "query": "My badge won't release my print jobs at the printer station",
+    "expected_kb_number": "KB-PRINTER-SECURE-RELEASE-BADGE"
+  },
+  {
+    "query": "Our large format plotter keeps cutting off the edges of prints",
+    "expected_kb_number": "KB-PRINTER-PLOTTER-LARGE-FORMAT"
+  },
+  {
+    "query": "Outlook on my computer isn't getting any new emails",
+    "expected_kb_number": "KB-EMAIL-OUTLOOK-NOT-SYNCING"
+  },
+  {
+    "query": "Outlook crashes every time I try to open it",
+    "expected_kb_number": "KB-EMAIL-OUTLOOK-CRASHES"
+  },
+  {
+    "query": "I can't send or receive email because my mailbox is full",
+    "expected_kb_number": "KB-EMAIL-MAILBOX-FULL"
+  },
+  {
+    "query": "I added someone to our distribution list but they're still not getting the emails",
+    "expected_kb_number": "KB-EMAIL-DISTRIBUTION-LIST"
+  },
+  {
+    "query": "I'm getting access denied trying to open our team's shared mailbox",
+    "expected_kb_number": "KB-EMAIL-SHARED-MAILBOX-DENIED"
+  },
+  {
+    "query": "My calendar invites aren't showing up on my phone even though they're on my laptop",
+    "expected_kb_number": "KB-EMAIL-CALENDAR-NOT-SYNCING"
+  },
+  {
+    "query": "Emails from a client keep going straight to my junk folder",
+    "expected_kb_number": "KB-EMAIL-SPAM-FILTER-AGGRESSIVE"
+  },
+  {
+    "query": "My emails keep bouncing back saying they couldn't be delivered",
+    "expected_kb_number": "KB-EMAIL-BOUNCING-UNDELIVERABLE"
+  },
+  {
+    "query": "Outlook keeps suggesting the wrong email address when I start typing a name",
+    "expected_kb_number": "KB-EMAIL-AUTOCOMPLETE-CORRUPT"
+  },
+  {
+    "query": "Searching in Outlook isn't finding emails I know exist",
+    "expected_kb_number": "KB-EMAIL-SEARCH-NOT-WORKING"
+  },
+  {
+    "query": "My inbox rules aren't automatically sorting emails like they used to",
+    "expected_kb_number": "KB-EMAIL-RULES-NOT-FIRING"
+  },
+  {
+    "query": "My email signature isn't showing up when I write a new email",
+    "expected_kb_number": "KB-EMAIL-SIGNATURE-NOT-APPLYING"
+  },
+  {
+    "query": "I turned on my out of office but it's not actually replying to anyone",
+    "expected_kb_number": "KB-EMAIL-OOF-NOT-TRIGGERING"
+  },
+  {
+    "query": "I can't send an email because the attachment is too big",
+    "expected_kb_number": "KB-EMAIL-ATTACHMENT-SIZE-LIMIT"
+  },
+  {
+    "query": "My emails are taking forever to actually show up for the recipient",
+    "expected_kb_number": "KB-EMAIL-DELAYED-DELIVERY"
+  },
+  {
+    "query": "The Outlook app on my phone stopped getting new emails",
+    "expected_kb_number": "KB-EMAIL-MOBILE-NOT-SYNCING"
+  },
+  {
+    "query": "I can't get my laptop to connect to the office Wi-Fi at all",
+    "expected_kb_number": "KB-WIFI-CANT-CONNECT-CORP"
+  },
+  {
+    "query": "My Wi-Fi keeps dropping and reconnecting every few minutes",
+    "expected_kb_number": "KB-WIFI-KEEPS-DISCONNECTING"
+  },
+  {
+    "query": "My Wi-Fi is really slow even though the signal looks strong",
+    "expected_kb_number": "KB-WIFI-SLOW-SPEEDS"
+  },
+  {
+    "query": "How do I get Wi-Fi access set up for a visitor coming to our office",
+    "expected_kb_number": "KB-WIFI-GUEST-ACCESS"
+  },
+  {
+    "query": "How do I connect to our office Wi-Fi that doesn't show up in the list",
+    "expected_kb_number": "KB-WIFI-HIDDEN-SSID"
+  },
+  {
+    "query": "Wi-Fi keeps popping up asking me to trust some certificate",
+    "expected_kb_number": "KB-WIFI-CERT-ISSUE"
+  },
+  {
+    "query": "My ethernet cable is plugged in but I have no internet",
+    "expected_kb_number": "KB-WIFI-ETHERNET-NO-CONNECTIVITY"
+  },
+  {
+    "query": "I'm connected to the network but no websites will load",
+    "expected_kb_number": "KB-WIFI-DNS-FAILURE"
+  },
+  {
+    "query": "I can't browse any websites and I'm getting a proxy error",
+    "expected_kb_number": "KB-WIFI-PROXY-CONFIG"
+  },
+  {
+    "query": "Every app works except this one program can't get online",
+    "expected_kb_number": "KB-WIFI-FIREWALL-BLOCKING-APP"
+  },
+  {
+    "query": "I can't remote desktop into my work computer, the connection just fails",
+    "expected_kb_number": "KB-WIFI-RDP-FAILS"
+  },
+  {
+    "query": "My shared drive won't map, it just says disconnected",
+    "expected_kb_number": "KB-WIFI-NETWORK-DRIVE-MAPPING"
+  },
+  {
+    "query": "My computer's IP address starts with 169.254 and nothing works",
+    "expected_kb_number": "KB-WIFI-DHCP-LEASE"
+  },
+  {
+    "query": "The guest Wi-Fi login page keeps popping back up even after I sign in",
+    "expected_kb_number": "KB-WIFI-CAPTIVE-PORTAL-LOOP"
+  },
+  {
+    "query": "I moved to a new desk and now I have no network access at all",
+    "expected_kb_number": "KB-WIFI-VLAN-NEW-OFFICE"
+  },
+  {
+    "query": "My video calls are choppy but only around the same time every day",
+    "expected_kb_number": "KB-WIFI-BANDWIDTH-THROTTLE"
+  },
+  {
+    "query": "My camera isn't showing up in Teams meetings",
+    "expected_kb_number": "KB-TEAMS-CAMERA-NOT-WORKING"
+  },
+  {
+    "query": "People can't hear me in Teams even though my mic works in other apps",
+    "expected_kb_number": "KB-TEAMS-MIC-NOT-WORKING"
+  },
+  {
+    "query": "When I share my screen in Teams everyone just sees a black screen",
+    "expected_kb_number": "KB-TEAMS-SCREEN-SHARE-FAILS"
+  },
+  {
+    "query": "I'm not getting any Teams notifications on my desktop anymore",
+    "expected_kb_number": "KB-TEAMS-NOTIFICATIONS-NOT-SHOWING"
+  },
+  {
+    "query": "Teams keeps asking me to sign in over and over and never actually logs in",
+    "expected_kb_number": "KB-TEAMS-LOGIN-LOOP"
+  },
+  {
+    "query": "There's a bad echo whenever I'm on a Zoom call",
+    "expected_kb_number": "KB-ZOOM-AUDIO-ECHO"
+  },
+  {
+    "query": "I click the Zoom link but it just won't let me join the meeting",
+    "expected_kb_number": "KB-ZOOM-CANT-JOIN-MEETING"
+  },
+  {
+    "query": "My Zoom recording has been stuck processing for hours",
+    "expected_kb_number": "KB-ZOOM-RECORDING-FAILS"
+  },
+  {
+    "query": "My Zoom virtual background looks really glitchy and broken",
+    "expected_kb_number": "KB-ZOOM-VIRTUAL-BACKGROUND"
+  },
+  {
+    "query": "I stopped getting notifications from Slack for some reason",
+    "expected_kb_number": "KB-SLACK-NOTIFICATIONS-NOT-WORKING"
+  },
+  {
+    "query": "I can't upload files in Slack, it just fails every time",
+    "expected_kb_number": "KB-SLACK-FILE-UPLOAD-FAILS"
+  },
+  {
+    "query": "I'm getting access denied trying to open our team's SharePoint site",
+    "expected_kb_number": "KB-SHAREPOINT-ACCESS-DENIED"
+  },
+  {
+    "query": "OneDrive has been stuck on processing changes for way too long",
+    "expected_kb_number": "KB-ONEDRIVE-SYNC-STUCK"
+  },
+  {
+    "query": "Some of my files seem to have disappeared from OneDrive",
+    "expected_kb_number": "KB-ONEDRIVE-FILES-NOT-SHOWING"
+  },
+  {
+    "query": "My camera won't turn on when I'm in a Webex meeting",
+    "expected_kb_number": "KB-WEBEX-CAMERA-ISSUE"
+  },
+  {
+    "query": "I can't hear anything in Webex even though my speakers work fine otherwise",
+    "expected_kb_number": "KB-WEBEX-AUDIO-ISSUE"
+  },
+  {
+    "query": "Google Meet keeps telling me my camera is blocked",
+    "expected_kb_number": "KB-GOOGLE-MEET-CAMERA-BLOCKED"
+  },
+  {
+    "query": "When I click a meeting link it keeps opening the wrong video app",
+    "expected_kb_number": "KB-ZOOM-TEAMS-DEFAULT-CONFLICT"
+  },
+  {
+    "query": "My laptop won't turn on no matter what I try",
+    "expected_kb_number": "KB-HW-LAPTOP-WONT-TURN-ON"
+  },
+  {
+    "query": "My laptop battery is dying way faster than it used to",
+    "expected_kb_number": "KB-HW-BATTERY-DRAINING-FAST"
+  },
+  {
+    "query": "My laptop screen keeps flickering on and off",
+    "expected_kb_number": "KB-HW-SCREEN-FLICKERING"
+  },
+  {
+    "query": "A few keys on my keyboard just stopped working",
+    "expected_kb_number": "KB-HW-KEYBOARD-UNRESPONSIVE"
+  },
+  {
+    "query": "My laptop doesn't recognize the docking station anymore",
+    "expected_kb_number": "KB-HW-DOCKING-STATION-NOT-DETECTED"
+  },
+  {
+    "query": "My external monitor just says no signal and won't display anything",
+    "expected_kb_number": "KB-HW-MONITOR-NO-SIGNAL"
+  },
+  {
+    "query": "None of my apps can find my webcam at all",
+    "expected_kb_number": "KB-HW-WEBCAM-NOT-WORKING"
+  },
+  {
+    "query": "My headset mic doesn't seem to be picking up any sound",
+    "expected_kb_number": "KB-HW-HEADSET-MIC-NOT-WORKING"
+  },
+  {
+    "query": "My external hard drive isn't showing up on my computer",
+    "expected_kb_number": "KB-HW-EXTERNAL-DRIVE-NOT-RECOGNIZED"
+  },
+  {
+    "query": "One of my USB ports just stopped working, the others are fine",
+    "expected_kb_number": "KB-HW-USB-PORT-NOT-WORKING"
+  },
+  {
+    "query": "My laptop's trackpad just stopped working",
+    "expected_kb_number": "KB-HW-TRACKPAD-NOT-WORKING"
+  },
+  {
+    "query": "My laptop gets really hot and slows way down when I use it",
+    "expected_kb_number": "KB-HW-LAPTOP-OVERHEATING"
+  },
+  {
+    "query": "My laptop fan has gotten really loud lately",
+    "expected_kb_number": "KB-HW-FAN-NOISE-LOUD"
+  },
+  {
+    "query": "My laptop says it's plugged in but the battery isn't charging",
+    "expected_kb_number": "KB-HW-LAPTOP-WONT-CHARGE"
+  },
+  {
+    "query": "My laptop just keeps restarting over and over before it even gets to Windows",
+    "expected_kb_number": "KB-HW-BIOS-BOOT-LOOP"
+  },
+  {
+    "query": "My computer keeps blue screening with what looks like the same error",
+    "expected_kb_number": "KB-HW-BLUE-SCREEN-RECURRING"
+  },
+  {
+    "query": "Microsoft Office suddenly says it's an unlicensed product",
+    "expected_kb_number": "KB-SW-OFFICE-LICENSE-INVALID"
+  },
+  {
+    "query": "Photoshop is telling me my license isn't valid",
+    "expected_kb_number": "KB-SW-ADOBE-LICENSE-INVALID"
+  },
+  {
+    "query": "AutoCAD won't start because it can't find the license server",
+    "expected_kb_number": "KB-SW-AUTOCAD-LICENSE-SERVER"
+  },
+  {
+    "query": "MATLAB says license checkout failed when I try to open it",
+    "expected_kb_number": "KB-SW-MATLAB-LICENSE-CHECKOUT"
+  },
+  {
+    "query": "I'm getting some numbered error code when I try to install this program",
+    "expected_kb_number": "KB-SW-INSTALL-ERROR-CODE"
+  },
+  {
+    "query": "The uninstaller for this program is just stuck and never finishes",
+    "expected_kb_number": "KB-SW-UNINSTALL-STUCK"
+  },
+  {
+    "query": "This app's update keeps failing every time I try to install it",
+    "expected_kb_number": "KB-SW-UPDATE-FAILS-REPEATEDLY"
+  },
+  {
+    "query": "This program crashes the second I try to open it",
+    "expected_kb_number": "KB-SW-APP-CRASHES-ON-LAUNCH"
+  },
+  {
+    "query": "This program starts fine but gets super slow and freezes after a while",
+    "expected_kb_number": "KB-SW-APP-SLOW-UNRESPONSIVE"
+  },
+  {
+    "query": "This app is installed but one of the features just isn't there",
+    "expected_kb_number": "KB-SW-MISSING-FEATURE-MODULE"
+  },
+  {
+    "query": "This old program won't run properly on my current version of Windows",
+    "expected_kb_number": "KB-SW-OS-COMPATIBILITY"
+  },
+  {
+    "query": "I'm trying to install something but it says I need admin rights",
+    "expected_kb_number": "KB-SW-ADMIN-RIGHTS-REQUIRED"
+  },
+  {
+    "query": "Our SCCM software push is failing on some computers but not others",
+    "expected_kb_number": "KB-SW-SCCM-SILENT-INSTALL-FAILS"
+  },
+  {
+    "query": "My antivirus is blocking me from installing a program I actually need",
+    "expected_kb_number": "KB-SW-ANTIVIRUS-BLOCKING-INSTALL"
+  },
+  {
+    "query": "My request to get new software installed has been pending forever",
+    "expected_kb_number": "KB-SW-REQUEST-APPROVAL-PENDING"
+  },
+  {
+    "query": "The app won't let me open it, it says all the license seats are taken",
+    "expected_kb_number": "KB-SW-LICENSE-SEAT-LIMIT"
+  },
+  {
+    "query": "My account got locked because I typed my password wrong too many times",
+    "expected_kb_number": "KB-SEC-ACCOUNT-LOCKED-OUT"
+  },
+  {
+    "query": "I'm not getting my MFA code or push notification when I try to log in",
+    "expected_kb_number": "KB-SEC-MFA-NOT-WORKING"
+  },
+  {
+    "query": "Every time I log in with SSO it just sends me right back to the login page",
+    "expected_kb_number": "KB-SEC-SSO-LOGIN-LOOP"
+  },
+  {
+    "query": "I can't get into our team's shared drive, it says permission denied",
+    "expected_kb_number": "KB-SEC-PERMISSION-DENIED-SHARED-DRIVE"
+  },
+  {
+    "query": "I requested to join a security group but it's still pending after a while",
+    "expected_kb_number": "KB-SEC-GROUP-MEMBERSHIP-PENDING"
+  },
+  {
+    "query": "How do I set up guest account access for an outside vendor",
+    "expected_kb_number": "KB-SEC-GUEST-ACCESS-REQUEST"
+  },
+  {
+    "query": "I reported a phishing email, what happens next",
+    "expected_kb_number": "KB-SEC-PHISHING-REPORTED"
+  },
+  {
+    "query": "I got an alert saying there was a suspicious login to my account",
+    "expected_kb_number": "KB-SEC-SUSPICIOUS-LOGIN-ALERT"
+  },
+  {
+    "query": "I keep getting a notice that my password is about to expire",
+    "expected_kb_number": "KB-SEC-PASSWORD-EXPIRING-REMINDER"
+  },
+  {
+    "query": "My device is marked as non-compliant and now I can't access company email",
+    "expected_kb_number": "KB-SEC-DEVICE-COMPLIANCE-FAIL"
+  },
+  {
+    "query": "I can't log in anywhere because it says my certificate expired",
+    "expected_kb_number": "KB-SEC-CERT-EXPIRED-AUTH"
+  },
+  {
+    "query": "My badge stopped working to get into the building",
+    "expected_kb_number": "KB-SEC-BADGE-ACCESS-NOT-WORKING"
+  },
+  {
+    "query": "I can't book one of our conference rooms in the calendar system",
+    "expected_kb_number": "KB-SEC-CONFERENCE-ROOM-BOOKING-ACCESS"
+  },
+  {
+    "query": "How do I request temporary admin access for a specific task",
+    "expected_kb_number": "KB-SEC-PRIVILEGED-ACCESS-REQUEST"
+  },
+  {
+    "query": "My email got blocked by some data loss prevention policy",
+    "expected_kb_number": "KB-SEC-DLP-BLOCK"
+  },
+  {
+    "query": "I keep getting logged out way too fast, is there a way to change that",
+    "expected_kb_number": "KB-SEC-SESSION-TIMEOUT-COMPLAINT"
+  },
+  {
+    "query": "My work email stopped syncing on my phone",
+    "expected_kb_number": "KB-MDM-PHONE-EMAIL-NOT-SYNCING"
+  },
+  {
+    "query": "My phone keeps failing when I try to enroll it in MDM",
+    "expected_kb_number": "KB-MDM-ENROLLMENT-FAILING"
+  },
+  {
+    "query": "My phone was stolen, how do I get it wiped remotely",
+    "expected_kb_number": "KB-MDM-LOST-STOLEN-WIPE"
+  },
+  {
+    "query": "The company app on my phone keeps crashing",
+    "expected_kb_number": "KB-MDM-APP-CRASHING"
+  },
+  {
+    "query": "I'm not getting push notifications from the work app anymore",
+    "expected_kb_number": "KB-MDM-PUSH-NOTIFICATIONS"
+  },
+  {
+    "query": "I can't get my phone's hotspot to connect to my laptop",
+    "expected_kb_number": "KB-MDM-HOTSPOT-NOT-WORKING"
+  },
+  {
+    "query": "My phone is almost out of storage and now email isn't syncing right",
+    "expected_kb_number": "KB-MDM-DEVICE-STORAGE-FULL"
+  },
+  {
+    "query": "My phone's software update keeps failing to install",
+    "expected_kb_number": "KB-MDM-OS-UPDATE-FAILING"
+  },
+  {
+    "query": "I can't get into our company's app store on my phone",
+    "expected_kb_number": "KB-MDM-APP-STORE-ACCESS"
+  },
+  {
+    "query": "My phone got blocked and it says something about my passcode not meeting policy",
+    "expected_kb_number": "KB-MDM-COMPLIANCE-PASSCODE-POLICY"
+  },
+  {
+    "query": "I enrolled my tablet but it's not showing up in the MDM system",
+    "expected_kb_number": "KB-MDM-TABLET-NOT-DETECTED"
+  },
+  {
+    "query": "I'm trying to enroll my personal phone for work and it's not going well",
+    "expected_kb_number": "KB-MDM-BYOD-ENROLLMENT"
+  },
+  {
+    "query": "The VPN profile for my phone just won't install at all",
+    "expected_kb_number": "KB-MDM-VPN-PROFILE-NOT-INSTALLING"
+  },
+  {
+    "query": "My phone's camera got disabled and I think it's some company policy",
+    "expected_kb_number": "KB-MDM-CAMERA-BLOCKED"
+  },
+  {
+    "query": "I can't get my ticket to submit in ServiceNow",
+    "expected_kb_number": "KB-SN-CANT-SUBMIT-TICKET"
+  },
+  {
+    "query": "My ServiceNow ticket has been waiting on approval forever",
+    "expected_kb_number": "KB-SN-APPROVAL-STUCK"
+  },
+  {
+    "query": "My ticket keeps going to the wrong team in ServiceNow",
+    "expected_kb_number": "KB-SN-TICKET-WRONG-GROUP"
+  },
+  {
+    "query": "I can't find a certain item in the ServiceNow catalog that should be there",
+    "expected_kb_number": "KB-SN-CATALOG-ITEM-MISSING"
+  },
+  {
+    "query": "This knowledge article in ServiceNow just shows up blank",
+    "expected_kb_number": "KB-SN-KB-ARTICLE-NOT-DISPLAYING"
+  },
+  {
+    "query": "I'm not getting any email notifications from ServiceNow anymore",
+    "expected_kb_number": "KB-SN-NOTIFICATION-EMAILS-MISSING"
+  },
+  {
+    "query": "My ServiceNow dashboard isn't loading properly, the widgets are blank",
+    "expected_kb_number": "KB-SN-DASHBOARD-NOT-LOADING"
+  },
+  {
+    "query": "I can't export this ServiceNow report, it just fails",
+    "expected_kb_number": "KB-SN-REPORT-EXPORT-FAILING"
+  },
+  {
+    "query": "Data isn't syncing between ServiceNow and our other system anymore",
+    "expected_kb_number": "KB-SN-INTEGRATION-SYNC-ERROR"
+  },
+  {
+    "query": "The ServiceNow app on my phone crashes as soon as I open it",
+    "expected_kb_number": "KB-SN-MOBILE-APP-CRASHING"
+  },
+  {
+    "query": "I got an SLA breach alert on my ticket that doesn't seem right",
+    "expected_kb_number": "KB-SN-SLA-BREACH-NOTIFICATION"
+  },
+  {
+    "query": "My closed ticket in ServiceNow keeps reopening on its own",
+    "expected_kb_number": "KB-SN-TICKET-REOPENS-AUTOMATICALLY"
+  },
+  {
+    "query": "Our app keeps timing out trying to connect to SQL Server",
+    "expected_kb_number": "KB-DB-SQLSERVER-CONNECTION-TIMEOUT"
+  },
+  {
+    "query": "We're getting an error that the Oracle listener isn't accepting connections",
+    "expected_kb_number": "KB-DB-ORACLE-LISTENER-DOWN"
+  },
+  {
+    "query": "The application is just giving me a 500 internal server error",
+    "expected_kb_number": "KB-DB-APP-SERVER-500-ERROR"
+  },
+  {
+    "query": "The API connection between our two systems isn't working anymore",
+    "expected_kb_number": "KB-DB-API-INTEGRATION-FAILING"
+  },
+  {
+    "query": "One of our scheduled batch jobs failed last night",
+    "expected_kb_number": "KB-DB-BATCH-JOB-FAILED"
+  },
+  {
+    "query": "This report keeps timing out when I try to generate it",
+    "expected_kb_number": "KB-DB-REPORT-TIMEOUT"
+  },
+  {
+    "query": "The data doesn't match between our two systems anymore",
+    "expected_kb_number": "KB-DB-DATA-SYNC-MISMATCH"
+  },
+  {
+    "query": "Last night's database backup job failed",
+    "expected_kb_number": "KB-DB-BACKUP-JOB-FAILED"
+  },
+  {
+    "query": "One of our servers is almost out of disk space",
+    "expected_kb_number": "KB-DB-DISK-SPACE-LOW-SERVER"
+  },
+  {
+    "query": "Our server's certificate expired and now nothing can connect to it",
+    "expected_kb_number": "KB-DB-SERVER-CERT-EXPIRED"
+  },
+  {
+    "query": "Our load balancer thinks our servers are down but they're actually fine",
+    "expected_kb_number": "KB-DB-LOAD-BALANCER-HEALTH-CHECK"
+  },
+  {
+    "query": "Our scheduled job just isn't running anymore, nothing happens at the scheduled time",
+    "expected_kb_number": "KB-DB-SCHEDULED-TASK-NOT-TRIGGERING"
+  },
+  {
+    "query": "How do I request a new laptop or monitor for myself",
+    "expected_kb_number": "KB-HOWTO-REQUEST-EQUIPMENT"
+  },
+  {
+    "query": "How do I submit my expense report for a recent business trip",
+    "expected_kb_number": "KB-HOWTO-SUBMIT-EXPENSE-REPORT"
+  },
+  {
+    "query": "How do I book a meeting room for a team meeting",
+    "expected_kb_number": "KB-HOWTO-BOOK-MEETING-ROOM"
+  },
+  {
+    "query": "How do I get VPN access set up for a new hire",
+    "expected_kb_number": "KB-HOWTO-REQUEST-VPN-ACCESS"
+  },
+  {
+    "query": "How do I request that a new piece of software gets installed for me",
+    "expected_kb_number": "KB-HOWTO-REQUEST-SOFTWARE-INSTALL"
+  },
+  {
+    "query": "How do I escalate something that's a really urgent P1 level issue",
+    "expected_kb_number": "KB-HOWTO-ESCALATE-P1-INCIDENT"
+  },
+  {
+    "query": "How can I see what's happening with a ticket I submitted",
+    "expected_kb_number": "KB-HOWTO-CHECK-TICKET-STATUS"
+  },
+  {
+    "query": "How do I update my phone number and other contact info",
+    "expected_kb_number": "KB-HOWTO-UPDATE-CONTACT-INFO"
+  },
+  {
+    "query": "How do I request building access for someone visiting our office",
+    "expected_kb_number": "KB-HOWTO-REQUEST-BUILDING-ACCESS"
+  },
+  {
+    "query": "How do I order more toner for our office printer",
+    "expected_kb_number": "KB-HOWTO-ORDER-PRINTER-SUPPLIES"
+  }
+]

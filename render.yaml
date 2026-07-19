@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: kb-rag-mcp
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: AZURE_TENANT_ID
+        sync: false
+      - key: AZURE_CLIENT_ID
+        sync: false
+      - key: AZURE_CLIENT_SECRET
+        sync: false
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_EMBED_DEPLOYMENT
+        value: text-embedding-3-small
+      - key: AZURE_OPENAI_API_VERSION
+        value: "2024-10-21"
+      - key: MCP_API_KEYS
+        sync: false

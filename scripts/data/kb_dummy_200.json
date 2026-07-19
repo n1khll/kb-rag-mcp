@@ -1,0 +1,1602 @@
+[
+  {
+    "kb_number": "KB-VPN-WIN-ANYCONNECT",
+    "kb_sys_id": "KB-VPN-WIN-ANYCONNECT",
+    "title": "VPN Client Fails to Connect on Windows 11 with Cisco AnyConnect",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "When Cisco AnyConnect fails to connect on Windows 11, reinstall the AnyConnect virtual network adapter from Device Manager, confirm Windows Firewall isn't blocking the client, and run 'netsh winsock reset' followed by a reboot. Check that the WFP callout drivers registered by AnyConnect are not disabled in Windows network settings."
+  },
+  {
+    "kb_number": "KB-VPN-WIN-GLOBALPROTECT",
+    "kb_sys_id": "KB-VPN-WIN-GLOBALPROTECT",
+    "title": "GlobalProtect Shows 'Connection Failed' After Windows Update",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "After a Windows feature update, GlobalProtect may show 'connection failed' because the virtual adapter gets disabled. Reinstall the GlobalProtect adapter via Programs and Features, confirm the Palo Alto portal address is reachable, and restart the GlobalProtect service in services.msc."
+  },
+  {
+    "kb_number": "KB-VPN-WIN-OPENVPN-TAP",
+    "kb_sys_id": "KB-VPN-WIN-OPENVPN-TAP",
+    "title": "OpenVPN on Windows Fails Because TAP-Windows Adapter Is Missing",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "If the OpenVPN GUI reports no TAP adapter available, the TAP-Windows driver was likely removed during a Windows update. Reinstall the driver through the OpenVPN installer's 'repair' option and confirm the adapter shows as enabled in Network Connections."
+  },
+  {
+    "kb_number": "KB-VPN-MACOS-ANYCONNECT",
+    "kb_sys_id": "KB-VPN-MACOS-ANYCONNECT",
+    "title": "VPN Drops Immediately After Connecting on macOS Sonoma",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "On macOS Sonoma, AnyConnect can drop seconds after connecting if the network extension permission was not granted. Open System Settings, Privacy and Security, Network Extensions, and allow the VPN helper. Also check Keychain Access for an expired client certificate and renew it."
+  },
+  {
+    "kb_number": "KB-VPN-MACOS-GLOBALPROTECT",
+    "kb_sys_id": "KB-VPN-MACOS-GLOBALPROTECT",
+    "title": "GlobalProtect Sign-In Fails Repeatedly on macOS After Ventura Update",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "After upgrading to macOS Ventura, GlobalProtect can loop on 'sign-in failed.' Clear the GlobalProtect cache folder under ~/Library/Application Support, then reinstall the client from the software portal before reconnecting."
+  },
+  {
+    "kb_number": "KB-VPN-LINUX-OPENVPN",
+    "kb_sys_id": "KB-VPN-LINUX-OPENVPN",
+    "title": "OpenVPN Fails with TLS Handshake Error on Ubuntu",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "If OpenVPN fails with a TLS handshake error on Ubuntu, verify the client certificate path in the .ovpn config, check that systemd-resolved is correctly handling pushed DNS, and confirm the local firewall (ufw) isn't blocking outbound UDP 1194."
+  },
+  {
+    "kb_number": "KB-VPN-ANDROID-SCREENLOCK",
+    "kb_sys_id": "KB-VPN-ANDROID-SCREENLOCK",
+    "title": "Android VPN App Disconnects When Screen Locks",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "On Android 13 and later, background restrictions can kill the VPN app when the screen locks. Exempt the VPN app from battery optimization under Settings, Apps, Battery, and enable Always-on VPN under Network and Internet, VPN."
+  },
+  {
+    "kb_number": "KB-VPN-IOS-PROFILE",
+    "kb_sys_id": "KB-VPN-IOS-PROFILE",
+    "title": "iOS VPN Profile Not Connecting After iOS Update",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "After an iOS update, a previously working VPN profile may stop connecting. Re-download the MDM VPN profile from Settings, General, VPN and Device Management, ensure Low Power Mode is off, and confirm the device trusts the management profile."
+  },
+  {
+    "kb_number": "KB-VPN-CHROMEOS",
+    "kb_sys_id": "KB-VPN-CHROMEOS",
+    "title": "VPN App Freezes on ChromeOS Devices",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "On ChromeOS, the Android VPN client runs inside the ARC container and can freeze after sleep. Restart the ARC container from chrome://arc, or reboot the Chromebook, then relaunch the VPN app."
+  },
+  {
+    "kb_number": "KB-VPN-CERT-EXPIRED",
+    "kb_sys_id": "KB-VPN-CERT-EXPIRED",
+    "title": "VPN Certificate Expired -- Renewal Steps for All Platforms",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "If any VPN client shows a certificate expired or untrusted error regardless of platform, the client certificate needs renewal through the self-service certificate portal. Renewal takes effect after the client is restarted and typically resolves the error immediately."
+  },
+  {
+    "kb_number": "KB-VPN-SPLIT-TUNNEL",
+    "kb_sys_id": "KB-VPN-SPLIT-TUNNEL",
+    "title": "Internal Resources Unreachable Due to Split Tunnel Misconfiguration",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "When VPN is connected but internal file shares and intranet sites are unreachable, split tunneling may be routing that traffic outside the tunnel. Check the routing table with 'route print' (Windows) or 'netstat -rn' (macOS/Linux) and confirm internal subnets are routed through the VPN adapter."
+  },
+  {
+    "kb_number": "KB-VPN-DNS-ISSUE",
+    "kb_sys_id": "KB-VPN-DNS-ISSUE",
+    "title": "VPN Connects But Internal Hostnames Won't Resolve",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "If VPN connects successfully but internal hostnames fail to resolve while IP addresses work fine, the pushed internal DNS server is not being applied. Flush the local DNS cache and confirm the VPN adapter's DNS settings show the internal DNS server, not the public one."
+  },
+  {
+    "kb_number": "KB-VPN-MFA-LOOP",
+    "kb_sys_id": "KB-VPN-MFA-LOOP",
+    "title": "Repeated MFA Prompt Right After VPN Connects",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "A VPN connection that repeatedly re-prompts for multi-factor authentication is usually caused by clock skew between the device and the authenticator app. Re-register the authenticator in the MFA portal and confirm the device's system clock is set to automatic."
+  },
+  {
+    "kb_number": "KB-VPN-SLOW-THROUGHPUT",
+    "kb_sys_id": "KB-VPN-SLOW-THROUGHPUT",
+    "title": "VPN Connects Successfully but Throughput Is Very Slow",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "Slow throughput over an otherwise-working VPN is often caused by video/streaming traffic being forced through the tunnel unnecessarily. Add a split-tunnel exclusion for those domains and check that the VPN adapter's MTU is set to 1400 rather than the default 1500."
+  },
+  {
+    "kb_number": "KB-VPN-LICENSE-LIMIT",
+    "kb_sys_id": "KB-VPN-LICENSE-LIMIT",
+    "title": "VPN Shows 'Maximum Connections Reached' Error",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "A 'maximum connections reached' error means the account has too many active VPN sessions from prior disconnects that weren't cleaned up. Request the helpdesk terminate stale sessions on the concentrator, or wait 15 minutes for idle sessions to time out automatically."
+  },
+  {
+    "kb_number": "KB-VPN-ACCOUNT-LOCKOUT",
+    "kb_sys_id": "KB-VPN-ACCOUNT-LOCKOUT",
+    "title": "VPN Account Locks After Repeated Authentication Failures",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "Entering the wrong VPN password multiple times locks the VPN-specific account (separate from the general network login) for 30 minutes. Use the self-service unlock tool or wait out the lockout window before retrying, to avoid extending the lockout further."
+  },
+  {
+    "kb_number": "KB-VPN-CORP-WIFI-CONFLICT",
+    "kb_sys_id": "KB-VPN-CORP-WIFI-CONFLICT",
+    "title": "VPN Drops Specifically When Connected to Corporate Wi-Fi",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "If VPN only drops on the corporate office Wi-Fi (but is stable on other networks), a captive portal re-authentication on that Wi-Fi is likely interrupting the tunnel. Connect via ethernet where available, or reauthenticate to the Wi-Fi captive portal before reconnecting VPN."
+  },
+  {
+    "kb_number": "KB-VPN-RDP-TIMEOUT",
+    "kb_sys_id": "KB-VPN-RDP-TIMEOUT",
+    "title": "Remote Desktop Sessions Disconnect Over VPN After Short Idle Period",
+    "category": "vpn",
+    "workflow_state": "published",
+    "body": "RDP sessions running over VPN that disconnect after a few minutes of inactivity are usually hitting a local idle timeout group policy, not a VPN issue. Adjust the RDP session time limit policy under Computer Configuration, Administrative Templates, Windows Components, Remote Desktop Services."
+  },
+  {
+    "kb_number": "KB-PWD-AD-WINDOWS",
+    "kb_sys_id": "KB-PWD-AD-WINDOWS",
+    "title": "How to Reset Your Windows/Active Directory Login Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "To reset your Windows domain login password, use the self-service password reset portal and verify your identity with your registered MFA method. The new password takes effect immediately on domain-joined machines once you lock and unlock the screen."
+  },
+  {
+    "kb_number": "KB-PWD-SERVICENOW",
+    "kb_sys_id": "KB-PWD-SERVICENOW",
+    "title": "How to Reset Your ServiceNow Portal Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "To reset a ServiceNow portal password, go to the login page and select Forgot Password. Enter your registered email address to receive a reset link. Links expire after 30 minutes; request a new one if it lapses."
+  },
+  {
+    "kb_number": "KB-PWD-O365",
+    "kb_sys_id": "KB-PWD-O365",
+    "title": "How to Reset Your Microsoft 365 / Outlook Web Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Reset your Microsoft 365 password at account.microsoft.com/password/reset using your work email. If self-service reset is disabled for your account, contact the helpdesk to have an admin issue a temporary password."
+  },
+  {
+    "kb_number": "KB-PWD-VPN-ACCOUNT",
+    "kb_sys_id": "KB-PWD-VPN-ACCOUNT",
+    "title": "How to Reset Your Separate VPN Account Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "VPN accounts use a separate password from your Windows login. Reset it through the VPN self-service tool at vpn-reset.internal, not the standard AD password reset portal, since they are managed independently."
+  },
+  {
+    "kb_number": "KB-PWD-WIFI-8021X",
+    "kb_sys_id": "KB-PWD-WIFI-8021X",
+    "title": "How to Reset Your Corporate Wi-Fi (802.1x) Credentials",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Corporate Wi-Fi authentication uses your domain credentials via 802.1x, so a Wi-Fi password reset is really an AD password reset that then needs to be re-entered in the Wi-Fi network settings on each device you use."
+  },
+  {
+    "kb_number": "KB-PWD-SQLSERVER",
+    "kb_sys_id": "KB-PWD-SQLSERVER",
+    "title": "Resetting a SQL Server Database Login Password",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "SQL Server login password resets require DBA assistance. Submit a request through the database access catalog item specifying the login name and target instance; self-service reset is not available for database accounts."
+  },
+  {
+    "kb_number": "KB-PWD-SALESFORCE",
+    "kb_sys_id": "KB-PWD-SALESFORCE",
+    "title": "How to Reset Your Salesforce Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "On the Salesforce login page, click 'Forgot Your Password?' and enter your username. The reset link is sent to the email on file in Salesforce, which may differ from your corporate email."
+  },
+  {
+    "kb_number": "KB-PWD-SAP",
+    "kb_sys_id": "KB-PWD-SAP",
+    "title": "SAP Account Locked -- How to Get It Unlocked and Reset",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "A locked SAP account (transaction SU01 shows locked) requires an SAP admin to unlock it; there is no self-service option. Submit the SAP access catalog item and an admin will reset the password within one business day."
+  },
+  {
+    "kb_number": "KB-PWD-WORKDAY",
+    "kb_sys_id": "KB-PWD-WORKDAY",
+    "title": "How to Reset Your Workday HR Portal Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Workday password resets are handled through the 'Forgot Password' link on the Workday sign-in page, which sends a reset code to your personal email on file, not your corporate email."
+  },
+  {
+    "kb_number": "KB-PWD-CONCUR",
+    "kb_sys_id": "KB-PWD-CONCUR",
+    "title": "How to Reset Your Concur Expense System Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Concur uses single sign-on for most employees, so a Concur-specific password reset is only needed for the small number of accounts still on local Concur authentication; use the 'Forgot Password' link on the Concur login page for those."
+  },
+  {
+    "kb_number": "KB-PWD-ADMIN-LOCAL",
+    "kb_sys_id": "KB-PWD-ADMIN-LOCAL",
+    "title": "Resetting a Local Administrator Password on a Laptop",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Local admin account passwords (separate from your domain login) can only be reset by IT in person or via remote tooling, since there is no self-service portal for local accounts. Bring the device to the helpdesk or request a remote reset session."
+  },
+  {
+    "kb_number": "KB-PWD-SHARED-SERVICE-ACCOUNT",
+    "kb_sys_id": "KB-PWD-SHARED-SERVICE-ACCOUNT",
+    "title": "Requesting a Password Rotation for a Shared Service Account",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Shared/service account passwords must be rotated by the account owner listed in the service account registry, not by individual team members. Submit a rotation request through the privileged access catalog item with a business justification."
+  },
+  {
+    "kb_number": "KB-PWD-MOBILE-PASSCODE",
+    "kb_sys_id": "KB-PWD-MOBILE-PASSCODE",
+    "title": "Resetting a Forgotten Mobile Device Passcode via MDM",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "A forgotten passcode on an MDM-enrolled phone can be cleared remotely by IT through the MDM console, which forces a passcode reset on next unlock. This does not wipe the device, unlike a full remote wipe."
+  },
+  {
+    "kb_number": "KB-PWD-BIOS",
+    "kb_sys_id": "KB-PWD-BIOS",
+    "title": "Resetting a Forgotten BIOS/UEFI Supervisor Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "A forgotten BIOS/UEFI supervisor password generally requires a hardware-level reset, such as removing the CMOS battery or using a manufacturer-specific unlock code tied to the device's service tag. This must be done by hardware support, not remotely."
+  },
+  {
+    "kb_number": "KB-PWD-WINDOWS-HELLO-PIN",
+    "kb_sys_id": "KB-PWD-WINDOWS-HELLO-PIN",
+    "title": "Windows Hello PIN Reset After Repeated Failed Attempts",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "After too many failed Windows Hello PIN attempts, Windows offers an 'I forgot my PIN' link on the lock screen that re-verifies your identity via your Microsoft account and lets you set a new PIN without a full password reset."
+  },
+  {
+    "kb_number": "KB-PWD-GITHUB-ENTERPRISE",
+    "kb_sys_id": "KB-PWD-GITHUB-ENTERPRISE",
+    "title": "How to Reset Your GitHub Enterprise Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "GitHub Enterprise password resets go through the 'Forgot password?' link on the organization's GitHub Enterprise sign-in page, separate from the corporate SSO reset, since local GitHub credentials are managed independently for API/CLI access."
+  },
+  {
+    "kb_number": "KB-PWD-JIRA-CONFLUENCE",
+    "kb_sys_id": "KB-PWD-JIRA-CONFLUENCE",
+    "title": "How to Reset Your Jira/Confluence Atlassian Password",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "Atlassian account passwords for Jira and Confluence are reset through id.atlassian.com, not the corporate SSO portal, since these tools authenticate against a separate Atlassian identity system for most legacy projects."
+  },
+  {
+    "kb_number": "KB-PWD-PRINTER-ADMIN",
+    "kb_sys_id": "KB-PWD-PRINTER-ADMIN",
+    "title": "Resetting the Admin Password on a Network Printer's Web Console",
+    "category": "account",
+    "workflow_state": "published",
+    "body": "If the admin password for a network printer's built-in web console is forgotten, most models support a hardware reset via a recessed button held during power-on, which restores factory defaults including the admin login."
+  },
+  {
+    "kb_number": "KB-PRINTER-NETWORK-OFFLINE",
+    "kb_sys_id": "KB-PRINTER-NETWORK-OFFLINE",
+    "title": "Network Printer Not Responding on the Network",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If a network printer stops responding, confirm it has a valid DHCP lease, ping its IP address from the affected workstation, and restart the print spooler service. Re-add the printer if the spooler restart does not resolve the issue."
+  },
+  {
+    "kb_number": "KB-PRINTER-USB-OFFLINE",
+    "kb_sys_id": "KB-PRINTER-USB-OFFLINE",
+    "title": "USB-Connected Printer Shows Offline on Windows",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A USB printer showing offline usually means Windows lost the USB connection state. Unplug and reconnect the USB cable, then right-click the printer in Settings and select 'Use Printer Online' if that option appears."
+  },
+  {
+    "kb_number": "KB-PRINTER-PAPER-JAM-RECURRING",
+    "kb_sys_id": "KB-PRINTER-PAPER-JAM-RECURRING",
+    "title": "Printer Reports Paper Jam Even After Paper Is Removed",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A recurring false paper jam message after clearing the paper usually indicates a stuck paper sensor. Open every access panel per the manufacturer's diagram and check for small torn paper fragments near the rollers, not just the visible tray."
+  },
+  {
+    "kb_number": "KB-PRINTER-TONER-LOW-PERSISTS",
+    "kb_sys_id": "KB-PRINTER-TONER-LOW-PERSISTS",
+    "title": "Toner Low Warning Persists After Replacing the Cartridge",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If the toner-low warning stays on screen after installing a new cartridge, the printer's toner chip may not have registered the swap. Remove the cartridge, reseat it firmly, and power-cycle the printer to force a chip re-read."
+  },
+  {
+    "kb_number": "KB-PRINTER-QUALITY-STREAKS",
+    "kb_sys_id": "KB-PRINTER-QUALITY-STREAKS",
+    "title": "Printed Pages Show Vertical Streaks or Faded Lines",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Vertical streaks or faded lines usually indicate a dirty print drum or a partially clogged nozzle. Run the built-in cleaning cycle from the printer's maintenance menu, and if streaks persist, the drum unit likely needs replacement."
+  },
+  {
+    "kb_number": "KB-PRINTER-WIRELESS-SETUP-FAILS",
+    "kb_sys_id": "KB-PRINTER-WIRELESS-SETUP-FAILS",
+    "title": "Wireless Printer Won't Complete Wi-Fi Setup",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If a printer's Wi-Fi setup wizard fails to complete, confirm it's attempting to join the correct 2.4GHz network (most printers don't support 5GHz), and temporarily disable MAC address filtering on the router during setup."
+  },
+  {
+    "kb_number": "KB-PRINTER-DRIVER-WINDOWS",
+    "kb_sys_id": "KB-PRINTER-DRIVER-WINDOWS",
+    "title": "Installing the Correct Printer Driver on Windows",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "When Windows installs a generic driver instead of the manufacturer's, print quality and feature options suffer. Download the specific driver package from the manufacturer's support site for your exact model and Windows version rather than using Windows Update's automatic driver."
+  },
+  {
+    "kb_number": "KB-PRINTER-DRIVER-MAC",
+    "kb_sys_id": "KB-PRINTER-DRIVER-MAC",
+    "title": "Installing the Correct Printer Driver on macOS",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "On macOS, add the printer through System Settings, Printers and Scanners, and choose 'Select Software' to manually pick the manufacturer's driver rather than accepting AirPrint's generic driver, which lacks advanced features like stapling."
+  },
+  {
+    "kb_number": "KB-PRINTER-OFFLINE-AFTER-UPDATE",
+    "kb_sys_id": "KB-PRINTER-OFFLINE-AFTER-UPDATE",
+    "title": "Printer Goes Offline After a Windows Update",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Printers that go offline right after a Windows update usually lost their assigned static port mapping. Reinstall the printer through Settings, Printers and Scanners, and manually re-add the correct IP-based port if auto-detection fails."
+  },
+  {
+    "kb_number": "KB-PRINTER-SPOOLER-CRASHED",
+    "kb_sys_id": "KB-PRINTER-SPOOLER-CRASHED",
+    "title": "Print Spooler Service Keeps Crashing",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A print spooler that repeatedly crashes is often caused by a corrupted job stuck in the queue. Stop the Print Spooler service, delete all files in C:\\Windows\\System32\\spool\\PRINTERS, then restart the service."
+  },
+  {
+    "kb_number": "KB-PRINTER-QUEUE-STUCK",
+    "kb_sys_id": "KB-PRINTER-QUEUE-STUCK",
+    "title": "Print Jobs Stuck in Queue and Won't Print",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Jobs stuck in the print queue that never clear usually indicate a communication failure with the printer. Cancel all documents in the queue, restart the Print Spooler service, and resend the print job."
+  },
+  {
+    "kb_number": "KB-PRINTER-SCAN-TO-EMAIL",
+    "kb_sys_id": "KB-PRINTER-SCAN-TO-EMAIL",
+    "title": "Scan-to-Email Feature Not Working on Network Printer",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If scan-to-email fails on a multifunction printer, the SMTP relay settings in the printer's web console likely need updating after a mail server change. Confirm the SMTP server address and port match the current mail relay configuration."
+  },
+  {
+    "kb_number": "KB-PRINTER-DUPLEX-FAILS",
+    "kb_sys_id": "KB-PRINTER-DUPLEX-FAILS",
+    "title": "Duplex (Double-Sided) Printing Fails or Jams",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If duplex printing consistently jams or fails, the duplexer unit may need cleaning or the paper weight may exceed the duplexer's rated capacity. Check the manual for the maximum supported paper weight for two-sided printing."
+  },
+  {
+    "kb_number": "KB-PRINTER-NOT-FOUND-NETWORK",
+    "kb_sys_id": "KB-PRINTER-NOT-FOUND-NETWORK",
+    "title": "Printer Not Found When Searching the Network",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If a printer doesn't appear when searching for network printers, confirm it's on the same subnet/VLAN as your workstation, since printers on a different VLAN won't show up in automatic discovery even if pingable."
+  },
+  {
+    "kb_number": "KB-PRINTER-COLOR-WRONG",
+    "kb_sys_id": "KB-PRINTER-COLOR-WRONG",
+    "title": "Color Prints Come Out With Wrong or Shifted Colors",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Colors printing incorrectly (e.g. skin tones look green, or colors are shifted) usually means a color cartridge is low or the color calibration has drifted. Run the printer's built-in color calibration routine from the maintenance menu."
+  },
+  {
+    "kb_number": "KB-PRINTER-MOBILE-AIRPRINT",
+    "kb_sys_id": "KB-PRINTER-MOBILE-AIRPRINT",
+    "title": "Can't Print From a Phone or Tablet to the Office Printer",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Mobile printing via AirPrint or Mopria requires the printer and mobile device to be on the same Wi-Fi network; corporate Wi-Fi with client isolation enabled blocks this. Use the guest print queue instead if client isolation is active."
+  },
+  {
+    "kb_number": "KB-PRINTER-SECURE-RELEASE-BADGE",
+    "kb_sys_id": "KB-PRINTER-SECURE-RELEASE-BADGE",
+    "title": "Badge Doesn't Release Held Print Jobs at the Print Station",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If tapping your badge at a secure print release station doesn't release your held jobs, your badge may not be correctly linked to your print account. Re-register your badge at the print management kiosk in the print room."
+  },
+  {
+    "kb_number": "KB-PRINTER-PLOTTER-LARGE-FORMAT",
+    "kb_sys_id": "KB-PRINTER-PLOTTER-LARGE-FORMAT",
+    "title": "Large-Format Plotter Produces Cut-Off or Misaligned Prints",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Large-format plotter prints that come out cut off or misaligned usually stem from an incorrect paper size setting in the print driver rather than a hardware fault. Confirm the driver's paper size exactly matches the loaded roll width."
+  },
+  {
+    "kb_number": "KB-EMAIL-OUTLOOK-NOT-SYNCING",
+    "kb_sys_id": "KB-EMAIL-OUTLOOK-NOT-SYNCING",
+    "title": "Outlook Desktop App Not Syncing New Emails",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "If Outlook stops receiving new email, check Send/Receive settings for a disabled schedule, and rebuild the OST file by renaming it while Outlook is closed so Outlook regenerates a fresh cache on next launch."
+  },
+  {
+    "kb_number": "KB-EMAIL-OUTLOOK-CRASHES",
+    "kb_sys_id": "KB-EMAIL-OUTLOOK-CRASHES",
+    "title": "Outlook Won't Open or Crashes on Launch",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Outlook crashing on launch is frequently caused by a corrupt add-in. Start Outlook in safe mode with 'outlook.exe /safe' and disable add-ins one at a time under File, Options, Add-ins to isolate the culprit."
+  },
+  {
+    "kb_number": "KB-EMAIL-MAILBOX-FULL",
+    "kb_sys_id": "KB-EMAIL-MAILBOX-FULL",
+    "title": "Mailbox Storage Full -- Can't Send or Receive Email",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "A full mailbox blocks both sending and receiving. Archive older items to a local PST or delete large attachments from Sent Items, then check your current usage under Outlook's Mailbox Cleanup tool."
+  },
+  {
+    "kb_number": "KB-EMAIL-DISTRIBUTION-LIST",
+    "kb_sys_id": "KB-EMAIL-DISTRIBUTION-LIST",
+    "title": "Distribution List Not Updating With New Members",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Distribution list membership changes can take up to an hour to propagate through directory replication. If a member is still missing after that window, confirm the request was submitted through the correct group management portal, not directly in Outlook."
+  },
+  {
+    "kb_number": "KB-EMAIL-SHARED-MAILBOX-DENIED",
+    "kb_sys_id": "KB-EMAIL-SHARED-MAILBOX-DENIED",
+    "title": "Access Denied Opening a Shared Mailbox",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "'Access denied' on a shared mailbox usually means the permission grant hasn't synced to your Outlook profile yet, or you weren't actually added to the mailbox's permission list. Confirm with the mailbox owner and remove/re-add the mailbox in Outlook."
+  },
+  {
+    "kb_number": "KB-EMAIL-CALENDAR-NOT-SYNCING",
+    "kb_sys_id": "KB-EMAIL-CALENDAR-NOT-SYNCING",
+    "title": "Calendar Invites Not Syncing Between Devices",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Calendar events created on one device that don't appear on another are usually a caching issue on the lagging device. Force a manual sync, or remove and re-add the account on that device if the delay persists beyond 15 minutes."
+  },
+  {
+    "kb_number": "KB-EMAIL-SPAM-FILTER-AGGRESSIVE",
+    "kb_sys_id": "KB-EMAIL-SPAM-FILTER-AGGRESSIVE",
+    "title": "Legitimate Emails Being Sent to Junk/Spam Folder",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "If legitimate senders keep landing in Junk, add the sender's domain to your Safe Senders list in Outlook, and separately submit the message to the security team's spam-filter tuning queue so the org-wide filter is adjusted."
+  },
+  {
+    "kb_number": "KB-EMAIL-BOUNCING-UNDELIVERABLE",
+    "kb_sys_id": "KB-EMAIL-BOUNCING-UNDELIVERABLE",
+    "title": "Outgoing Emails Bouncing Back as Undeliverable",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Emails bouncing with an NDR (non-delivery report) usually list a specific SMTP error code in the bounce message; check that code against the mail gateway's error reference, as most bounces trace back to an invalid recipient address or a blocked domain."
+  },
+  {
+    "kb_number": "KB-EMAIL-AUTOCOMPLETE-CORRUPT",
+    "kb_sys_id": "KB-EMAIL-AUTOCOMPLETE-CORRUPT",
+    "title": "Outlook Autocomplete Suggests Wrong or Outdated Addresses",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "A corrupted autocomplete cache (the .NK2 or stream-based nickname cache) causes Outlook to suggest stale or wrong email addresses. Clear it under File, Options, Mail, Send Messages, Empty Auto-Complete List."
+  },
+  {
+    "kb_number": "KB-EMAIL-SEARCH-NOT-WORKING",
+    "kb_sys_id": "KB-EMAIL-SEARCH-NOT-WORKING",
+    "title": "Outlook Search Returns No Results or Incomplete Results",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Outlook search returning empty or partial results usually means the Windows Search index is out of date or excludes Outlook data. Rebuild the index under Control Panel, Indexing Options, Advanced, Rebuild, and allow several hours for reindexing."
+  },
+  {
+    "kb_number": "KB-EMAIL-RULES-NOT-FIRING",
+    "kb_sys_id": "KB-EMAIL-RULES-NOT-FIRING",
+    "title": "Inbox Rules Not Automatically Running",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Client-side rules only run while Outlook is open; if you need a rule to apply even when Outlook is closed, it must be recreated as a server-side rule via Outlook on the web, since client-only rules silently stop working otherwise."
+  },
+  {
+    "kb_number": "KB-EMAIL-SIGNATURE-NOT-APPLYING",
+    "kb_sys_id": "KB-EMAIL-SIGNATURE-NOT-APPLYING",
+    "title": "Email Signature Not Applying to New Messages",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "If your signature isn't inserting automatically, check File, Options, Mail, Signatures and confirm the correct signature is selected under 'New messages' specifically -- the 'Replies/forwards' dropdown is a separate setting that's easy to leave misconfigured."
+  },
+  {
+    "kb_number": "KB-EMAIL-OOF-NOT-TRIGGERING",
+    "kb_sys_id": "KB-EMAIL-OOF-NOT-TRIGGERING",
+    "title": "Out-of-Office Auto-Reply Not Sending",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "An out-of-office reply that isn't triggering is often because the automatic replies rule was scheduled with an end date already in the past. Reconfigure it under File, Automatic Replies, and double-check both the start and end date fields."
+  },
+  {
+    "kb_number": "KB-EMAIL-ATTACHMENT-SIZE-LIMIT",
+    "kb_sys_id": "KB-EMAIL-ATTACHMENT-SIZE-LIMIT",
+    "title": "Can't Send Emails With Large Attachments",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Attachments over the organization's size limit (typically 25MB) will fail to send silently or with a size-limit error. Use the file-sharing link feature in Outlook instead of a direct attachment for large files."
+  },
+  {
+    "kb_number": "KB-EMAIL-DELAYED-DELIVERY",
+    "kb_sys_id": "KB-EMAIL-DELAYED-DELIVERY",
+    "title": "Emails Take a Long Time to Arrive",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "Significant delivery delays (many minutes to hours) usually point to a queue backup on the outbound mail gateway rather than a problem with your mailbox specifically; check the mail system status page before troubleshooting locally."
+  },
+  {
+    "kb_number": "KB-EMAIL-MOBILE-NOT-SYNCING",
+    "kb_sys_id": "KB-EMAIL-MOBILE-NOT-SYNCING",
+    "title": "Outlook Mobile App Not Syncing on Phone",
+    "category": "email",
+    "workflow_state": "published",
+    "body": "If the Outlook mobile app stops syncing, remove and re-add the account within the app rather than just force-closing it, since a stale sync token is the most common cause and a simple restart won't clear it."
+  },
+  {
+    "kb_number": "KB-WIFI-CANT-CONNECT-CORP",
+    "kb_sys_id": "KB-WIFI-CANT-CONNECT-CORP",
+    "title": "Can't Connect to Corporate Wi-Fi Network",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Failure to connect to corporate Wi-Fi is most often a forgotten or expired 802.1x certificate. Forget the network on the device and reconnect fresh so it re-provisions the certificate through the network access control system."
+  },
+  {
+    "kb_number": "KB-WIFI-KEEPS-DISCONNECTING",
+    "kb_sys_id": "KB-WIFI-KEEPS-DISCONNECTING",
+    "title": "Wi-Fi Repeatedly Disconnects and Reconnects",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Frequent Wi-Fi drop-and-reconnect cycles are commonly caused by aggressive power-saving settings on the wireless adapter. Disable 'Allow the computer to turn off this device to save power' under the adapter's Device Manager properties."
+  },
+  {
+    "kb_number": "KB-WIFI-SLOW-SPEEDS",
+    "kb_sys_id": "KB-WIFI-SLOW-SPEEDS",
+    "title": "Wi-Fi Connection Is Very Slow",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Slow Wi-Fi despite a strong signal is often channel congestion in a busy office. Try switching the adapter to prefer the 5GHz band over 2.4GHz, which has far less interference in most buildings."
+  },
+  {
+    "kb_number": "KB-WIFI-GUEST-ACCESS",
+    "kb_sys_id": "KB-WIFI-GUEST-ACCESS",
+    "title": "How to Request Guest Wi-Fi Access for a Visitor",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Guest Wi-Fi access for visitors is requested through the facilities self-service portal, which generates a time-limited voucher code valid for the visitor's specified visit dates."
+  },
+  {
+    "kb_number": "KB-WIFI-HIDDEN-SSID",
+    "kb_sys_id": "KB-WIFI-HIDDEN-SSID",
+    "title": "Connecting to a Hidden SSID Corporate Network",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "To connect to a hidden corporate SSID, manually add the network in Wi-Fi settings using 'Add a network' rather than searching, entering the exact SSID name and security type provided by network services."
+  },
+  {
+    "kb_number": "KB-WIFI-CERT-ISSUE",
+    "kb_sys_id": "KB-WIFI-CERT-ISSUE",
+    "title": "Wi-Fi Repeatedly Asks to Trust a Certificate",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "A recurring prompt to trust a certificate when connecting to Wi-Fi usually means the device's root certificate for network authentication expired or was never properly installed; reinstall it from the device compliance portal."
+  },
+  {
+    "kb_number": "KB-WIFI-ETHERNET-NO-CONNECTIVITY",
+    "kb_sys_id": "KB-WIFI-ETHERNET-NO-CONNECTIVITY",
+    "title": "Ethernet Cable Connected but No Internet Access",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "An ethernet connection showing as connected but with no internet access is typically a failed DHCP request; try 'ipconfig /release' followed by 'ipconfig /renew,' or check that the wall port is provisioned on the correct VLAN."
+  },
+  {
+    "kb_number": "KB-WIFI-DNS-FAILURE",
+    "kb_sys_id": "KB-WIFI-DNS-FAILURE",
+    "title": "Websites Won't Load Even Though Network Is Connected",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Being connected to the network but unable to load any websites is a classic DNS resolution failure. Flush the DNS cache with 'ipconfig /flushdns' and confirm the DNS server addresses in network settings are correct."
+  },
+  {
+    "kb_number": "KB-WIFI-PROXY-CONFIG",
+    "kb_sys_id": "KB-WIFI-PROXY-CONFIG",
+    "title": "Web Browsing Blocked by Incorrect Proxy Settings",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "If web pages fail to load with a proxy-related error, the system proxy configuration may have reverted to a stale PAC file URL. Reset proxy settings to 'automatically detect settings' under network proxy configuration."
+  },
+  {
+    "kb_number": "KB-WIFI-FIREWALL-BLOCKING-APP",
+    "kb_sys_id": "KB-WIFI-FIREWALL-BLOCKING-APP",
+    "title": "A Specific Application Can't Reach the Internet",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "When only one application can't connect while others work fine, the local firewall is likely blocking that specific executable. Add an inbound/outbound allow rule for the application in Windows Defender Firewall with Advanced Security."
+  },
+  {
+    "kb_number": "KB-WIFI-RDP-FAILS",
+    "kb_sys_id": "KB-WIFI-RDP-FAILS",
+    "title": "Remote Desktop Connection Fails to a Work Computer",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "A remote desktop connection attempt that times out or is refused usually means the target machine is asleep or the firewall on that machine is blocking RDP; confirm the target's power settings and that RDP is enabled under System Properties."
+  },
+  {
+    "kb_number": "KB-WIFI-NETWORK-DRIVE-MAPPING",
+    "kb_sys_id": "KB-WIFI-NETWORK-DRIVE-MAPPING",
+    "title": "Mapped Network Drive Won't Connect",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "A mapped drive that shows disconnected or won't reconnect at login is often due to expired cached credentials. Remove the mapped drive and re-add it, entering credentials fresh rather than relying on 'remember my credentials.'"
+  },
+  {
+    "kb_number": "KB-WIFI-DHCP-LEASE",
+    "kb_sys_id": "KB-WIFI-DHCP-LEASE",
+    "title": "Device Gets an APIPA (169.254.x.x) Address Instead of a Real IP",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "An address starting with 169.254 means the device failed to get a response from a DHCP server. Try a different network port, or run 'ipconfig /release' then 'ipconfig /renew' to force a fresh DHCP request."
+  },
+  {
+    "kb_number": "KB-WIFI-CAPTIVE-PORTAL-LOOP",
+    "kb_sys_id": "KB-WIFI-CAPTIVE-PORTAL-LOOP",
+    "title": "Guest Wi-Fi Captive Portal Keeps Reappearing",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "A captive portal login page that keeps reappearing after successful login usually means the device's clock is out of sync, which invalidates the portal's session cookie. Correct the device's date/time settings and log in again."
+  },
+  {
+    "kb_number": "KB-WIFI-VLAN-NEW-OFFICE",
+    "kb_sys_id": "KB-WIFI-VLAN-NEW-OFFICE",
+    "title": "No Network Access After Moving Desks in a New Office",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Losing network access after a desk move usually means the new port hasn't been provisioned on the correct VLAN yet. Submit a facilities/network ticket with the new desk's port label so networking can assign the right VLAN."
+  },
+  {
+    "kb_number": "KB-WIFI-BANDWIDTH-THROTTLE",
+    "kb_sys_id": "KB-WIFI-BANDWIDTH-THROTTLE",
+    "title": "Video Calls Are Choppy Only During Peak Office Hours",
+    "category": "network",
+    "workflow_state": "published",
+    "body": "Choppy video calls specifically during busy hours point to bandwidth contention on a saturated office link rather than a personal device issue. Report the pattern (including time of day) to networking so they can review peak utilization."
+  },
+  {
+    "kb_number": "KB-TEAMS-CAMERA-NOT-WORKING",
+    "kb_sys_id": "KB-TEAMS-CAMERA-NOT-WORKING",
+    "title": "Camera Not Working in Microsoft Teams",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "If the camera doesn't show video in Teams, check Teams' own camera permission under Settings, Devices, since Windows camera privacy settings can block Teams even when the camera works fine in other apps."
+  },
+  {
+    "kb_number": "KB-TEAMS-MIC-NOT-WORKING",
+    "kb_sys_id": "KB-TEAMS-MIC-NOT-WORKING",
+    "title": "Microphone Not Working in Microsoft Teams",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "A microphone that works elsewhere but not in Teams usually means the wrong input device is selected under Teams' audio settings, or another app (like a recording tool) has an exclusive lock on the microphone."
+  },
+  {
+    "kb_number": "KB-TEAMS-SCREEN-SHARE-FAILS",
+    "kb_sys_id": "KB-TEAMS-SCREEN-SHARE-FAILS",
+    "title": "Screen Sharing Fails or Shows Blank in Teams",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "A blank shared screen in Teams is commonly caused by hardware acceleration conflicts. Disable 'GPU hardware acceleration' under Teams Settings, General, and restart Teams before trying to share again."
+  },
+  {
+    "kb_number": "KB-TEAMS-NOTIFICATIONS-NOT-SHOWING",
+    "kb_sys_id": "KB-TEAMS-NOTIFICATIONS-NOT-SHOWING",
+    "title": "Teams Notifications Not Appearing on Desktop",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Missing Teams desktop notifications are usually a Windows Focus Assist or notification permission issue, not a Teams bug. Check Windows Settings, Notifications, and confirm Teams is allowed to send notifications and Focus Assist isn't set to Alarms Only."
+  },
+  {
+    "kb_number": "KB-TEAMS-LOGIN-LOOP",
+    "kb_sys_id": "KB-TEAMS-LOGIN-LOOP",
+    "title": "Microsoft Teams Stuck in a Sign-In Loop",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Teams looping back to the sign-in screen repeatedly is often a corrupted local cache. Fully quit Teams, delete the contents of %appdata%\\Microsoft\\Teams, and relaunch to force a clean re-authentication."
+  },
+  {
+    "kb_number": "KB-ZOOM-AUDIO-ECHO",
+    "kb_sys_id": "KB-ZOOM-AUDIO-ECHO",
+    "title": "Echo or Audio Feedback During Zoom Calls",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Echo during a Zoom call is almost always caused by two devices in the same room both having speakers and microphones active. Mute all but one device, or enable 'Suppress background noise' at the High setting in Zoom's audio settings."
+  },
+  {
+    "kb_number": "KB-ZOOM-CANT-JOIN-MEETING",
+    "kb_sys_id": "KB-ZOOM-CANT-JOIN-MEETING",
+    "title": "Can't Join a Zoom Meeting -- Link Doesn't Work",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "If a Zoom meeting link fails to open the app, confirm you're using the latest Zoom client, since very old versions are sometimes blocked from joining meetings hosted with newer security requirements like waiting rooms."
+  },
+  {
+    "kb_number": "KB-ZOOM-RECORDING-FAILS",
+    "kb_sys_id": "KB-ZOOM-RECORDING-FAILS",
+    "title": "Zoom Cloud Recording Never Finishes Processing",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "A cloud recording stuck 'processing' for an unusually long time is typically a backlog on Zoom's processing servers rather than an account issue; check Zoom's status page before assuming the recording is lost."
+  },
+  {
+    "kb_number": "KB-ZOOM-VIRTUAL-BACKGROUND",
+    "kb_sys_id": "KB-ZOOM-VIRTUAL-BACKGROUND",
+    "title": "Virtual Background Not Working or Looks Glitchy in Zoom",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Glitchy or non-functional virtual backgrounds in Zoom usually mean the device doesn't meet the minimum CPU requirement for background removal without a green screen; try a lower-resolution background image or disable it."
+  },
+  {
+    "kb_number": "KB-SLACK-NOTIFICATIONS-NOT-WORKING",
+    "kb_sys_id": "KB-SLACK-NOTIFICATIONS-NOT-WORKING",
+    "title": "Slack Notifications Not Coming Through",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Missing Slack notifications are usually caused by a channel or workspace-level notification preference that got changed accidentally. Check both the specific channel's notification bell icon and the global preferences under Slack Settings."
+  },
+  {
+    "kb_number": "KB-SLACK-FILE-UPLOAD-FAILS",
+    "kb_sys_id": "KB-SLACK-FILE-UPLOAD-FAILS",
+    "title": "File Uploads Fail in Slack",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Slack file uploads that fail repeatedly are often blocked by a corporate data-loss-prevention policy scanning the file type or content, not a Slack bug; try uploading a plain text file to confirm whether the issue is file-specific."
+  },
+  {
+    "kb_number": "KB-SHAREPOINT-ACCESS-DENIED",
+    "kb_sys_id": "KB-SHAREPOINT-ACCESS-DENIED",
+    "title": "Access Denied Opening a SharePoint Site",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Access denied on a SharePoint site usually means your permission grant hasn't propagated yet or you were added to the wrong SharePoint group. Confirm with the site owner which group you should be in and request re-adding if needed."
+  },
+  {
+    "kb_number": "KB-ONEDRIVE-SYNC-STUCK",
+    "kb_sys_id": "KB-ONEDRIVE-SYNC-STUCK",
+    "title": "OneDrive Sync Stuck at 'Processing Changes'",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "OneDrive stuck indefinitely on 'processing changes' is commonly resolved by pausing and resuming sync from the OneDrive taskbar icon, or as a last resort unlinking and relinking the OneDrive account to force a full resync."
+  },
+  {
+    "kb_number": "KB-ONEDRIVE-FILES-NOT-SHOWING",
+    "kb_sys_id": "KB-ONEDRIVE-FILES-NOT-SHOWING",
+    "title": "Files Missing From OneDrive That Should Be There",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Files that appear missing in OneDrive are often just filtered out by the 'Files On-Demand' setting showing them as cloud-only rather than actually deleted; check the OneDrive web interface directly before assuming data loss."
+  },
+  {
+    "kb_number": "KB-WEBEX-CAMERA-ISSUE",
+    "kb_sys_id": "KB-WEBEX-CAMERA-ISSUE",
+    "title": "Camera Not Turning On in Webex Meetings",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "If the camera won't turn on in Webex specifically, check that no other application (like Teams or Zoom) is holding an exclusive lock on the camera in the background, since only one app can access it at a time."
+  },
+  {
+    "kb_number": "KB-WEBEX-AUDIO-ISSUE",
+    "kb_sys_id": "KB-WEBEX-AUDIO-ISSUE",
+    "title": "No Audio Output During Webex Calls",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "Missing audio in Webex despite working speakers elsewhere usually means Webex has the wrong output device selected in its own audio settings, independent of the Windows or macOS system default device."
+  },
+  {
+    "kb_number": "KB-GOOGLE-MEET-CAMERA-BLOCKED",
+    "kb_sys_id": "KB-GOOGLE-MEET-CAMERA-BLOCKED",
+    "title": "Google Meet Says Camera Is Blocked",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "A 'camera blocked' message in Google Meet within Chrome means the site-level camera permission was denied at some point. Click the camera icon in the address bar and change the permission to Allow, then reload the page."
+  },
+  {
+    "kb_number": "KB-ZOOM-TEAMS-DEFAULT-CONFLICT",
+    "kb_sys_id": "KB-ZOOM-TEAMS-DEFAULT-CONFLICT",
+    "title": "Meeting Links Open the Wrong App (Zoom vs Teams)",
+    "category": "collaboration",
+    "workflow_state": "published",
+    "body": "If clicking a meeting link opens the wrong conferencing app, the operating system's default app association for that link type needs correcting under Settings, Apps, Default Apps, rather than a setting inside either app itself."
+  },
+  {
+    "kb_number": "KB-HW-LAPTOP-WONT-TURN-ON",
+    "kb_sys_id": "KB-HW-LAPTOP-WONT-TURN-ON",
+    "title": "Laptop Won't Turn On At All",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A laptop that shows absolutely no signs of power should first be tested with a known-good charger and a 30-second held power button drain (with battery and charger disconnected if removable), which resolves many false dead-battery cases."
+  },
+  {
+    "kb_number": "KB-HW-BATTERY-DRAINING-FAST",
+    "kb_sys_id": "KB-HW-BATTERY-DRAINING-FAST",
+    "title": "Laptop Battery Draining Much Faster Than Usual",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A sudden drop in battery life is often caused by a background process pegging the CPU. Check Task Manager's power usage history and consider recalibrating the battery via a full discharge/charge cycle if it's a long-term drift."
+  },
+  {
+    "kb_number": "KB-HW-SCREEN-FLICKERING",
+    "kb_sys_id": "KB-HW-SCREEN-FLICKERING",
+    "title": "Laptop Screen Flickers Intermittently",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "Intermittent screen flickering is commonly a graphics driver issue rather than a hardware fault. Update the display driver through the manufacturer's site (not just Windows Update) and disable any adaptive brightness feature to rule it out."
+  },
+  {
+    "kb_number": "KB-HW-KEYBOARD-UNRESPONSIVE",
+    "kb_sys_id": "KB-HW-KEYBOARD-UNRESPONSIVE",
+    "title": "Some Keyboard Keys Stop Responding",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A subset of keys becoming unresponsive (rather than the whole keyboard) usually points to debris under those specific keys or a driver glitch. Try an external USB keyboard to isolate whether it's hardware or software."
+  },
+  {
+    "kb_number": "KB-HW-DOCKING-STATION-NOT-DETECTED",
+    "kb_sys_id": "KB-HW-DOCKING-STATION-NOT-DETECTED",
+    "title": "Docking Station Not Detected When Laptop Connects",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A docking station that isn't recognized often needs its firmware/driver package reinstalled after a Windows update, since docks frequently break on major OS updates until the vendor's dock software is reapplied."
+  },
+  {
+    "kb_number": "KB-HW-MONITOR-NO-SIGNAL",
+    "kb_sys_id": "KB-HW-MONITOR-NO-SIGNAL",
+    "title": "External Monitor Shows 'No Signal'",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "'No signal' on an external monitor is most often a loose or incompatible cable, especially with USB-C to HDMI adapters. Try a different cable/port combination and press Windows+P to cycle display modes before assuming a hardware fault."
+  },
+  {
+    "kb_number": "KB-HW-WEBCAM-NOT-WORKING",
+    "kb_sys_id": "KB-HW-WEBCAM-NOT-WORKING",
+    "title": "Built-In Webcam Not Detected by Any Application",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A webcam that no applications can detect (not just one) usually means it's disabled in Device Manager or blocked at the BIOS level; check Device Manager first, then camera privacy settings, before assuming hardware failure."
+  },
+  {
+    "kb_number": "KB-HW-HEADSET-MIC-NOT-WORKING",
+    "kb_sys_id": "KB-HW-HEADSET-MIC-NOT-WORKING",
+    "title": "Headset Microphone Not Being Picked Up",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A headset mic that seems dead is frequently just muted at the hardware level via an inline mute button/switch on the cable, which is easy to overlook; check the physical mute control before troubleshooting software settings."
+  },
+  {
+    "kb_number": "KB-HW-EXTERNAL-DRIVE-NOT-RECOGNIZED",
+    "kb_sys_id": "KB-HW-EXTERNAL-DRIVE-NOT-RECOGNIZED",
+    "title": "External Hard Drive Not Recognized by Computer",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "An external drive that doesn't appear at all (not even in Disk Management) suggests a power or cable issue rather than a formatting problem. Try a different USB port and cable before assuming the drive itself has failed."
+  },
+  {
+    "kb_number": "KB-HW-USB-PORT-NOT-WORKING",
+    "kb_sys_id": "KB-HW-USB-PORT-NOT-WORKING",
+    "title": "One Specific USB Port Stopped Working",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "If only one USB port has stopped working while others are fine, check Device Manager for a disabled or errored USB Root Hub entry tied to that port, which can often be re-enabled without a hardware repair."
+  },
+  {
+    "kb_number": "KB-HW-TRACKPAD-NOT-WORKING",
+    "kb_sys_id": "KB-HW-TRACKPAD-NOT-WORKING",
+    "title": "Laptop Trackpad Stopped Responding to Touch",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "An unresponsive trackpad is often accidentally disabled via a function-key toggle (commonly Fn+F5 or similar) rather than a hardware failure. Check the function-key row for a trackpad icon before further troubleshooting."
+  },
+  {
+    "kb_number": "KB-HW-LAPTOP-OVERHEATING",
+    "kb_sys_id": "KB-HW-LAPTOP-OVERHEATING",
+    "title": "Laptop Gets Extremely Hot and Slows Down",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A laptop that overheats and throttles performance under normal use often has a dust-clogged fan/vent. Use compressed air on the exhaust vents, and confirm the laptop is on a hard, flat surface rather than a soft one blocking airflow."
+  },
+  {
+    "kb_number": "KB-HW-FAN-NOISE-LOUD",
+    "kb_sys_id": "KB-HW-FAN-NOISE-LOUD",
+    "title": "Laptop Fan Is Unusually Loud",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A consistently loud fan even during light use can indicate accumulated dust restricting airflow, forcing the fan to spin faster to compensate. A compressed-air cleaning of the vents often resolves this without a repair ticket."
+  },
+  {
+    "kb_number": "KB-HW-LAPTOP-WONT-CHARGE",
+    "kb_sys_id": "KB-HW-LAPTOP-WONT-CHARGE",
+    "title": "Laptop Plugged In but Not Charging",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A laptop showing 'plugged in, not charging' despite a connected charger often points to a battery health issue reported by Windows rather than the charger itself; check the battery report ('powercfg /batteryreport') for wear level before replacing the charger."
+  },
+  {
+    "kb_number": "KB-HW-BIOS-BOOT-LOOP",
+    "kb_sys_id": "KB-HW-BIOS-BOOT-LOOP",
+    "title": "Laptop Stuck in a Boot Loop Before Reaching Windows",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A device that restarts repeatedly before ever reaching the Windows logo usually indicates a failed update or corrupted boot record. Boot into recovery mode (hold Shift while clicking Restart, if reachable) to access Startup Repair."
+  },
+  {
+    "kb_number": "KB-HW-BLUE-SCREEN-RECURRING",
+    "kb_sys_id": "KB-HW-BLUE-SCREEN-RECURRING",
+    "title": "Computer Keeps Blue-Screening With the Same Error",
+    "category": "hardware",
+    "workflow_state": "published",
+    "body": "A recurring blue screen with the same stop code is best diagnosed from the minidump file it generates; check C:\\Windows\\Minidump for the crash file and note the exact stop code, which usually points to a specific faulty driver."
+  },
+  {
+    "kb_number": "KB-SW-OFFICE-LICENSE-INVALID",
+    "kb_sys_id": "KB-SW-OFFICE-LICENSE-INVALID",
+    "title": "Microsoft Office Shows 'Unlicensed Product'",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "Office suddenly showing as unlicensed after working fine is usually a token expiration issue. Sign out of your Microsoft account within any Office app and sign back in to refresh the license token from the volume licensing service."
+  },
+  {
+    "kb_number": "KB-SW-ADOBE-LICENSE-INVALID",
+    "kb_sys_id": "KB-SW-ADOBE-LICENSE-INVALID",
+    "title": "Adobe Creative Cloud App Shows License Error",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An Adobe license error usually resolves by signing out of Creative Cloud entirely and signing back in, which forces a fresh license check against the organization's Adobe Admin Console entitlement."
+  },
+  {
+    "kb_number": "KB-SW-AUTOCAD-LICENSE-SERVER",
+    "kb_sys_id": "KB-SW-AUTOCAD-LICENSE-SERVER",
+    "title": "AutoCAD Can't Reach the License Server",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "AutoCAD reporting it can't reach the license server usually means the FlexLM license server address changed or is temporarily down; verify the server name/port in the license configuration matches the current license server documentation."
+  },
+  {
+    "kb_number": "KB-SW-MATLAB-LICENSE-CHECKOUT",
+    "kb_sys_id": "KB-SW-MATLAB-LICENSE-CHECKOUT",
+    "title": "MATLAB License Checkout Failed Error",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "A MATLAB 'license checkout failed' error commonly means all concurrent license seats are currently in use; wait for a seat to free up, or submit a request for an additional seat if this happens frequently."
+  },
+  {
+    "kb_number": "KB-SW-INSTALL-ERROR-CODE",
+    "kb_sys_id": "KB-SW-INSTALL-ERROR-CODE",
+    "title": "Software Installation Fails With a Numeric Error Code",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "Installer failures with a numeric error code should be looked up against the vendor's error code reference first, since most codes map to a specific known cause like insufficient disk space or a conflicting prior installation."
+  },
+  {
+    "kb_number": "KB-SW-UNINSTALL-STUCK",
+    "kb_sys_id": "KB-SW-UNINSTALL-STUCK",
+    "title": "Program Uninstall Gets Stuck and Never Finishes",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An uninstall that hangs indefinitely can usually be cleared with Microsoft's official 'Program Install and Uninstall Troubleshooter' tool, which forcibly removes stuck installer registry entries the standard uninstaller can't handle."
+  },
+  {
+    "kb_number": "KB-SW-UPDATE-FAILS-REPEATEDLY",
+    "kb_sys_id": "KB-SW-UPDATE-FAILS-REPEATEDLY",
+    "title": "Application Update Keeps Failing to Install",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "Repeated update failures for the same application often trace back to a permissions issue in the app's install directory. Confirm the update was attempted with admin rights, since silent permission failures are common with per-machine installs."
+  },
+  {
+    "kb_number": "KB-SW-APP-CRASHES-ON-LAUNCH",
+    "kb_sys_id": "KB-SW-APP-CRASHES-ON-LAUNCH",
+    "title": "Application Crashes Immediately on Launch",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An app that crashes the instant it opens (before any UI appears) is frequently caused by a corrupted local settings/cache file. Clear the app's local app data folder (back it up first) and relaunch to force default settings."
+  },
+  {
+    "kb_number": "KB-SW-APP-SLOW-UNRESPONSIVE",
+    "kb_sys_id": "KB-SW-APP-SLOW-UNRESPONSIVE",
+    "title": "Application Runs Extremely Slowly or Freezes",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An application that's fine on launch but becomes sluggish over time often has a memory leak; check Task Manager's memory usage over a session, and restart the app periodically as a workaround until a patched version is available."
+  },
+  {
+    "kb_number": "KB-SW-MISSING-FEATURE-MODULE",
+    "kb_sys_id": "KB-SW-MISSING-FEATURE-MODULE",
+    "title": "Expected Feature or Module Missing From Installed App",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "A missing feature that should be available is often just an optional module that wasn't selected during a custom install. Re-run the installer and choose 'Modify' to add the missing component rather than reinstalling from scratch."
+  },
+  {
+    "kb_number": "KB-SW-OS-COMPATIBILITY",
+    "kb_sys_id": "KB-SW-OS-COMPATIBILITY",
+    "title": "Older Software Won't Run on the Current OS Version",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "Legacy software failing on a current OS version can sometimes be resolved using Compatibility Mode (right-click the executable, Properties, Compatibility tab), set to an older Windows version the software was originally built for."
+  },
+  {
+    "kb_number": "KB-SW-ADMIN-RIGHTS-REQUIRED",
+    "kb_sys_id": "KB-SW-ADMIN-RIGHTS-REQUIRED",
+    "title": "Installation Blocked -- Administrator Rights Required",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "Standard user accounts cannot install most software by design. Submit an installation request through the software catalog so IT can push the install remotely, rather than requesting temporary local admin rights."
+  },
+  {
+    "kb_number": "KB-SW-SCCM-SILENT-INSTALL-FAILS",
+    "kb_sys_id": "KB-SW-SCCM-SILENT-INSTALL-FAILS",
+    "title": "Silent Software Deployment via SCCM Fails on Some Machines",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An SCCM package that fails silently on a subset of machines is commonly a disk space or prerequisite-check failure specific to those devices; check the SCCM client log (AppEnforce.log) on an affected machine for the exact failure reason."
+  },
+  {
+    "kb_number": "KB-SW-ANTIVIRUS-BLOCKING-INSTALL",
+    "kb_sys_id": "KB-SW-ANTIVIRUS-BLOCKING-INSTALL",
+    "title": "Antivirus Software Blocks a Legitimate Application Install",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "If endpoint antivirus quarantines or blocks a known-legitimate installer, submit an exception request through the security team's allowlist process rather than disabling antivirus protection, even temporarily."
+  },
+  {
+    "kb_number": "KB-SW-REQUEST-APPROVAL-PENDING",
+    "kb_sys_id": "KB-SW-REQUEST-APPROVAL-PENDING",
+    "title": "Software Request Stuck in Pending Approval",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "A software request stuck in pending status beyond the normal SLA usually means the assigned approver hasn't acted on it yet; check the request's approval history in the catalog item and follow up directly with the named approver."
+  },
+  {
+    "kb_number": "KB-SW-LICENSE-SEAT-LIMIT",
+    "kb_sys_id": "KB-SW-LICENSE-SEAT-LIMIT",
+    "title": "Can't Launch App -- All License Seats Are in Use",
+    "category": "software",
+    "workflow_state": "published",
+    "body": "An 'all seats in use' error for a concurrently-licensed application means every available license is currently checked out by other users; either wait for a seat to free up or request additional seats if this is a recurring bottleneck."
+  },
+  {
+    "kb_number": "KB-SEC-ACCOUNT-LOCKED-OUT",
+    "kb_sys_id": "KB-SEC-ACCOUNT-LOCKED-OUT",
+    "title": "Account Locked Out After Failed Login Attempts",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "Repeated failed logins lock the account for a fixed cooldown window as a brute-force protection. Use the self-service unlock tool if enrolled, or contact the helpdesk to unlock immediately rather than waiting out the timer."
+  },
+  {
+    "kb_number": "KB-SEC-MFA-NOT-WORKING",
+    "kb_sys_id": "KB-SEC-MFA-NOT-WORKING",
+    "title": "Multi-Factor Authentication Prompt Not Working",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "An MFA push notification or code that never arrives is often a clock-sync issue on the authenticator app, or the registered phone number/device is out of date. Re-register your MFA method through the identity self-service portal."
+  },
+  {
+    "kb_number": "KB-SEC-SSO-LOGIN-LOOP",
+    "kb_sys_id": "KB-SEC-SSO-LOGIN-LOOP",
+    "title": "Single Sign-On Keeps Looping Back to Login Page",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "An SSO loop (repeatedly bounced back to the login screen after entering credentials) is commonly caused by browser cookies blocking third-party cookies required by the identity provider; try a different browser or clear cookies for the SSO domain."
+  },
+  {
+    "kb_number": "KB-SEC-PERMISSION-DENIED-SHARED-DRIVE",
+    "kb_sys_id": "KB-SEC-PERMISSION-DENIED-SHARED-DRIVE",
+    "title": "Permission Denied Accessing a Shared Network Drive",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "Access denied on a shared drive despite believing you have access usually means the underlying group membership grant hasn't synced yet, or you were added to the wrong security group; confirm the exact group name with the drive owner."
+  },
+  {
+    "kb_number": "KB-SEC-GROUP-MEMBERSHIP-PENDING",
+    "kb_sys_id": "KB-SEC-GROUP-MEMBERSHIP-PENDING",
+    "title": "Requested Group Membership Still Shows Pending",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "A group membership request stuck in pending status beyond the normal turnaround time usually means it's awaiting manager or resource-owner approval; check the request's approval chain in the identity portal and follow up with the named approver."
+  },
+  {
+    "kb_number": "KB-SEC-GUEST-ACCESS-REQUEST",
+    "kb_sys_id": "KB-SEC-GUEST-ACCESS-REQUEST",
+    "title": "How to Request Guest Access for an External Partner",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "External guest access for a partner or vendor is requested through the identity governance portal's guest invitation flow, which requires a sponsoring employee and an access expiration date."
+  },
+  {
+    "kb_number": "KB-SEC-PHISHING-REPORTED",
+    "kb_sys_id": "KB-SEC-PHISHING-REPORTED",
+    "title": "What Happens After You Report a Phishing Email",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "Reporting a suspicious email via the Report Phishing button submits it to the security operations team for automated and manual review; you'll typically receive an acknowledgment, and if confirmed malicious, similar emails are purged org-wide."
+  },
+  {
+    "kb_number": "KB-SEC-SUSPICIOUS-LOGIN-ALERT",
+    "kb_sys_id": "KB-SEC-SUSPICIOUS-LOGIN-ALERT",
+    "title": "Received an Alert About a Suspicious Login to Your Account",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "A suspicious login alert should be verified immediately: if you don't recognize the location or device listed, change your password right away and report it to security, since the alert indicates a real login attempt was scored as risky."
+  },
+  {
+    "kb_number": "KB-SEC-PASSWORD-EXPIRING-REMINDER",
+    "kb_sys_id": "KB-SEC-PASSWORD-EXPIRING-REMINDER",
+    "title": "Password Expiring Soon Notification",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "The password-expiring reminder appears a set number of days before mandatory rotation; you can change it proactively through the self-service portal at any time before expiration to avoid a forced reset at a less convenient moment."
+  },
+  {
+    "kb_number": "KB-SEC-DEVICE-COMPLIANCE-FAIL",
+    "kb_sys_id": "KB-SEC-DEVICE-COMPLIANCE-FAIL",
+    "title": "Device Marked Non-Compliant, Blocking Access to Company Resources",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "A device flagged non-compliant by MDM (blocking email or app access) usually failed a specific policy check like disk encryption or OS version; check the compliance status details in the Company Portal app to see exactly which check failed."
+  },
+  {
+    "kb_number": "KB-SEC-CERT-EXPIRED-AUTH",
+    "kb_sys_id": "KB-SEC-CERT-EXPIRED-AUTH",
+    "title": "Authentication Certificate Expired, Blocking Login",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "An expired authentication certificate blocking login to Wi-Fi, VPN, or internal sites needs to be renewed through the device's certificate auto-enrollment; a manual reboot after reconnecting to the corporate network usually triggers reissuance."
+  },
+  {
+    "kb_number": "KB-SEC-BADGE-ACCESS-NOT-WORKING",
+    "kb_sys_id": "KB-SEC-BADGE-ACCESS-NOT-WORKING",
+    "title": "Building Badge/Access Card Not Working at Door Readers",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "A badge that stopped working at door readers may have been deactivated due to a status change (e.g. department transfer) or physical demagnetization; request badge reactivation or reissue through the facilities access portal."
+  },
+  {
+    "kb_number": "KB-SEC-CONFERENCE-ROOM-BOOKING-ACCESS",
+    "kb_sys_id": "KB-SEC-CONFERENCE-ROOM-BOOKING-ACCESS",
+    "title": "Can't Book a Conference Room Through the Calendar System",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "An inability to book a specific conference room resource usually means you weren't granted booking permission for that particular room's calendar; request access through the facilities resource booking request form."
+  },
+  {
+    "kb_number": "KB-SEC-PRIVILEGED-ACCESS-REQUEST",
+    "kb_sys_id": "KB-SEC-PRIVILEGED-ACCESS-REQUEST",
+    "title": "How to Request Temporary Privileged/Admin Access",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "Temporary privileged access (such as local admin or elevated database rights) is requested through the privileged access management portal, which grants time-boxed access that automatically expires after the approved window."
+  },
+  {
+    "kb_number": "KB-SEC-DLP-BLOCK",
+    "kb_sys_id": "KB-SEC-DLP-BLOCK",
+    "title": "File Upload or Email Blocked by Data Loss Prevention Policy",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "A DLP block on an email or upload means the content matched a sensitive-data pattern (like a credit card or SSN format). Review the DLP notification for the specific rule triggered, and use the approved secure file-transfer method instead if the content is legitimately needed externally."
+  },
+  {
+    "kb_number": "KB-SEC-SESSION-TIMEOUT-COMPLAINT",
+    "kb_sys_id": "KB-SEC-SESSION-TIMEOUT-COMPLAINT",
+    "title": "Getting Logged Out Too Frequently Due to Session Timeout",
+    "category": "security",
+    "workflow_state": "published",
+    "body": "Frequent forced logouts are governed by a fixed idle-session timeout security policy that applies organization-wide and can't be changed per-user; if it's disruptive for a specific legitimate workflow, submit an exception request with business justification."
+  },
+  {
+    "kb_number": "KB-MDM-PHONE-EMAIL-NOT-SYNCING",
+    "kb_sys_id": "KB-MDM-PHONE-EMAIL-NOT-SYNCING",
+    "title": "Corporate Email Not Syncing on Mobile Phone",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "Corporate email that stops syncing on a phone is often caused by an expired device certificate used for mobile authentication. Remove and re-add the email account in the mobile mail app to force re-provisioning."
+  },
+  {
+    "kb_number": "KB-MDM-ENROLLMENT-FAILING",
+    "kb_sys_id": "KB-MDM-ENROLLMENT-FAILING",
+    "title": "Device Fails to Enroll in Mobile Device Management (MDM)",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "MDM enrollment failures partway through are commonly caused by insufficient device storage or an outdated OS version below the minimum supported enrollment requirement; check both before retrying enrollment."
+  },
+  {
+    "kb_number": "KB-MDM-LOST-STOLEN-WIPE",
+    "kb_sys_id": "KB-MDM-LOST-STOLEN-WIPE",
+    "title": "How to Request a Remote Wipe for a Lost or Stolen Device",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A lost or stolen device wipe request must be submitted immediately through the security incident portal or by calling the helpdesk directly, since a remote wipe can only succeed while the device still has network connectivity."
+  },
+  {
+    "kb_number": "KB-MDM-APP-CRASHING",
+    "kb_sys_id": "KB-MDM-APP-CRASHING",
+    "title": "Corporate Mobile App Keeps Crashing",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A corporate app that crashes repeatedly on mobile should first be updated to the latest version from the corporate app store, since crash fixes are typically shipped faster there than a full OS update resolves the issue."
+  },
+  {
+    "kb_number": "KB-MDM-PUSH-NOTIFICATIONS",
+    "kb_sys_id": "KB-MDM-PUSH-NOTIFICATIONS",
+    "title": "Not Receiving Push Notifications From Corporate Apps",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "Missing push notifications from a corporate app are usually a device-level notification permission that got disabled, not a server-side issue; check the app's specific notification permission in the phone's system settings."
+  },
+  {
+    "kb_number": "KB-MDM-HOTSPOT-NOT-WORKING",
+    "kb_sys_id": "KB-MDM-HOTSPOT-NOT-WORKING",
+    "title": "Mobile Hotspot Won't Connect Other Devices",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A phone's hotspot feature failing to let other devices connect is frequently a data plan restriction rather than a technical fault; confirm with carrier support whether hotspot/tethering is enabled on the current plan."
+  },
+  {
+    "kb_number": "KB-MDM-DEVICE-STORAGE-FULL",
+    "kb_sys_id": "KB-MDM-DEVICE-STORAGE-FULL",
+    "title": "Phone Storage Full, Blocking App Updates and Email Sync",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A phone with full storage can silently fail to sync email or update apps well before showing an explicit low-storage warning; check available storage under phone settings and clear cached app data before assuming a sync bug."
+  },
+  {
+    "kb_number": "KB-MDM-OS-UPDATE-FAILING",
+    "kb_sys_id": "KB-MDM-OS-UPDATE-FAILING",
+    "title": "Mobile OS Update Fails to Install",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A mobile OS update that fails partway through installation is commonly caused by insufficient free storage or an interrupted download; ensure at least twice the update's file size is free and retry on a stable Wi-Fi connection."
+  },
+  {
+    "kb_number": "KB-MDM-APP-STORE-ACCESS",
+    "kb_sys_id": "KB-MDM-APP-STORE-ACCESS",
+    "title": "Can't Access the Corporate App Store on Mobile",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "Inability to open the corporate app store on an enrolled device usually means the device fell out of MDM compliance, which blocks store access until the compliance issue (like a missing passcode policy) is resolved."
+  },
+  {
+    "kb_number": "KB-MDM-COMPLIANCE-PASSCODE-POLICY",
+    "kb_sys_id": "KB-MDM-COMPLIANCE-PASSCODE-POLICY",
+    "title": "Device Blocked for Not Meeting Passcode Policy Requirements",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A device blocked specifically for passcode policy non-compliance needs its passcode reconfigured to meet the minimum length/complexity required by the MDM policy, which is checked automatically on each compliance scan."
+  },
+  {
+    "kb_number": "KB-MDM-TABLET-NOT-DETECTED",
+    "kb_sys_id": "KB-MDM-TABLET-NOT-DETECTED",
+    "title": "Tablet Not Showing Up in MDM Console After Enrollment",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A tablet that completed enrollment but doesn't appear in the MDM console within a reasonable time usually needs a manual sync triggered from the console, or the enrollment profile may need to be reinstalled on the device."
+  },
+  {
+    "kb_number": "KB-MDM-BYOD-ENROLLMENT",
+    "kb_sys_id": "KB-MDM-BYOD-ENROLLMENT",
+    "title": "Personal (BYOD) Device Enrollment Issues",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "Personal device enrollment problems (BYOD) most often stem from using the wrong enrollment profile meant for corporate-owned devices; confirm you're using the specific BYOD enrollment link, which applies a lighter management profile."
+  },
+  {
+    "kb_number": "KB-MDM-VPN-PROFILE-NOT-INSTALLING",
+    "kb_sys_id": "KB-MDM-VPN-PROFILE-NOT-INSTALLING",
+    "title": "VPN Configuration Profile Won't Install on Mobile Device",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A VPN profile that fails to install (distinct from a VPN that's installed but won't connect) usually means the device isn't yet enrolled in MDM or the profile was pushed before enrollment completed; confirm enrollment status first."
+  },
+  {
+    "kb_number": "KB-MDM-CAMERA-BLOCKED",
+    "kb_sys_id": "KB-MDM-CAMERA-BLOCKED",
+    "title": "Camera Disabled on Phone Due to MDM Policy",
+    "category": "mobile",
+    "workflow_state": "published",
+    "body": "A camera disabled specifically by MDM policy (rather than a hardware fault) is usually applied to devices in certain restricted locations or roles; check with your manager whether a camera-restriction policy applies to your device group."
+  },
+  {
+    "kb_number": "KB-SN-CANT-SUBMIT-TICKET",
+    "kb_sys_id": "KB-SN-CANT-SUBMIT-TICKET",
+    "title": "Can't Submit a New Ticket in ServiceNow",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "An inability to submit a new incident or request in ServiceNow is often a required field left blank that isn't visually obvious; scroll through the entire form for a red-outlined mandatory field before assuming a system error."
+  },
+  {
+    "kb_number": "KB-SN-APPROVAL-STUCK",
+    "kb_sys_id": "KB-SN-APPROVAL-STUCK",
+    "title": "Ticket Approval Stuck in Pending State",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "An approval stuck pending past its expected turnaround usually just means the assigned approver hasn't acted yet; check the approval history related list on the ticket and follow up directly with the named approver."
+  },
+  {
+    "kb_number": "KB-SN-TICKET-WRONG-GROUP",
+    "kb_sys_id": "KB-SN-TICKET-WRONG-GROUP",
+    "title": "Ticket Routed to the Wrong Assignment Group",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "A ticket landing in the wrong assignment group is usually caused by an incorrect category/subcategory selected at submission, which drives the routing rules; the receiving group can reassign it, but future tickets should use the correct category."
+  },
+  {
+    "kb_number": "KB-SN-CATALOG-ITEM-MISSING",
+    "kb_sys_id": "KB-SN-CATALOG-ITEM-MISSING",
+    "title": "Expected Catalog Item Missing From the Service Catalog",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "A catalog item that should exist but isn't visible is often restricted to specific user groups/roles rather than actually missing; confirm with the catalog owner whether the item has a visibility restriction that excludes your role."
+  },
+  {
+    "kb_number": "KB-SN-KB-ARTICLE-NOT-DISPLAYING",
+    "kb_sys_id": "KB-SN-KB-ARTICLE-NOT-DISPLAYING",
+    "title": "Knowledge Article Won't Display or Shows Blank",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "A knowledge article that shows blank or won't render is commonly a workflow_state issue (still in draft, not published) or a user criteria restriction limiting who can view it; check the article's publish status and view restrictions."
+  },
+  {
+    "kb_number": "KB-SN-NOTIFICATION-EMAILS-MISSING",
+    "kb_sys_id": "KB-SN-NOTIFICATION-EMAILS-MISSING",
+    "title": "Not Receiving ServiceNow Email Notifications",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "Missing ServiceNow notification emails are frequently caused by a personal notification preference disabled in your user profile, or the emails landing in a spam/junk folder due to filtering rules."
+  },
+  {
+    "kb_number": "KB-SN-DASHBOARD-NOT-LOADING",
+    "kb_sys_id": "KB-SN-DASHBOARD-NOT-LOADING",
+    "title": "ServiceNow Dashboard Won't Load or Shows Blank Widgets",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "Dashboard widgets failing to load are commonly a browser cache issue after a platform upgrade; clear the browser cache for the ServiceNow domain specifically and reload, rather than a full browser cache clear."
+  },
+  {
+    "kb_number": "KB-SN-REPORT-EXPORT-FAILING",
+    "kb_sys_id": "KB-SN-REPORT-EXPORT-FAILING",
+    "title": "Report Export to Excel/PDF Fails in ServiceNow",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "Report exports that fail or time out usually indicate the report is pulling too large a dataset; add filters to reduce the row count, since exports above a certain size threshold are blocked by design to protect performance."
+  },
+  {
+    "kb_number": "KB-SN-INTEGRATION-SYNC-ERROR",
+    "kb_sys_id": "KB-SN-INTEGRATION-SYNC-ERROR",
+    "title": "Data Not Syncing Between ServiceNow and an Integrated System",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "A stalled integration sync between ServiceNow and another system usually shows a specific error in the integration's transaction log; check that log first, as most failures trace to an expired API credential or a schema mismatch after an update."
+  },
+  {
+    "kb_number": "KB-SN-MOBILE-APP-CRASHING",
+    "kb_sys_id": "KB-SN-MOBILE-APP-CRASHING",
+    "title": "ServiceNow Mobile App Crashes on Open",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "The ServiceNow mobile app crashing on launch is usually resolved by updating to the latest app version, since the mobile app is updated independently of the underlying ServiceNow instance version."
+  },
+  {
+    "kb_number": "KB-SN-SLA-BREACH-NOTIFICATION",
+    "kb_sys_id": "KB-SN-SLA-BREACH-NOTIFICATION",
+    "title": "Unexpected SLA Breach Notification on a Ticket",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "An SLA breach notification that seems premature is often due to the SLA timer running against business hours calculated in a different timezone than expected; verify the SLA definition's configured schedule before disputing the breach."
+  },
+  {
+    "kb_number": "KB-SN-TICKET-REOPENS-AUTOMATICALLY",
+    "kb_sys_id": "KB-SN-TICKET-REOPENS-AUTOMATICALLY",
+    "title": "Closed Ticket Keeps Automatically Reopening",
+    "category": "servicenow",
+    "workflow_state": "published",
+    "body": "A ticket that reopens itself shortly after closure is commonly triggered by a lingering related incident or a business rule tied to an unresolved child task; check related records before assuming it's a platform bug."
+  },
+  {
+    "kb_number": "KB-DB-SQLSERVER-CONNECTION-TIMEOUT",
+    "kb_sys_id": "KB-DB-SQLSERVER-CONNECTION-TIMEOUT",
+    "title": "SQL Server Connection Times Out From the Application",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "Application-to-SQL-Server connection timeouts often stem from a saturated connection pool rather than the database itself being down; check the connection pool metrics before assuming a database outage."
+  },
+  {
+    "kb_number": "KB-DB-ORACLE-LISTENER-DOWN",
+    "kb_sys_id": "KB-DB-ORACLE-LISTENER-DOWN",
+    "title": "Oracle Listener Not Accepting Connections",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "An Oracle 'listener not accepting connections' error usually means the listener service itself has stopped; restart the listener with 'lsnrctl start' on the database host and confirm the correct port is open on the firewall."
+  },
+  {
+    "kb_number": "KB-DB-APP-SERVER-500-ERROR",
+    "kb_sys_id": "KB-DB-APP-SERVER-500-ERROR",
+    "title": "Application Returns a Generic 500 Internal Server Error",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A generic 500 error on an application usually has a specific underlying exception in the application server's log file; check the most recent log entries for a stack trace before escalating, since the root cause is rarely visible from the error page alone."
+  },
+  {
+    "kb_number": "KB-DB-API-INTEGRATION-FAILING",
+    "kb_sys_id": "KB-DB-API-INTEGRATION-FAILING",
+    "title": "API Integration Between Two Systems Failing",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A failing API integration commonly traces to an expired API key/token or a breaking schema change on one side; check the integration's error log for the specific HTTP status code returned before assuming a network issue."
+  },
+  {
+    "kb_number": "KB-DB-BATCH-JOB-FAILED",
+    "kb_sys_id": "KB-DB-BATCH-JOB-FAILED",
+    "title": "Scheduled Batch Job Failed to Complete",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A failed batch job's log typically shows the exact record or step where it stopped; review that log first, since most batch failures are caused by a single malformed input record rather than a systemic issue."
+  },
+  {
+    "kb_number": "KB-DB-REPORT-TIMEOUT",
+    "kb_sys_id": "KB-DB-REPORT-TIMEOUT",
+    "title": "Report Generation Times Out on Large Data Sets",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "Reports that time out on large data sets usually need either a narrower date range/filter or should be scheduled to run during off-peak hours when more server resources are available, rather than run interactively."
+  },
+  {
+    "kb_number": "KB-DB-DATA-SYNC-MISMATCH",
+    "kb_sys_id": "KB-DB-DATA-SYNC-MISMATCH",
+    "title": "Data Mismatch Between Two Integrated Systems",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "Data that doesn't match between two synced systems is often caused by a sync job that failed silently partway through on a prior run; check the sync job's run history for a partial failure before assuming ongoing data corruption."
+  },
+  {
+    "kb_number": "KB-DB-BACKUP-JOB-FAILED",
+    "kb_sys_id": "KB-DB-BACKUP-JOB-FAILED",
+    "title": "Scheduled Database Backup Job Failed",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A failed backup job most commonly runs out of destination disk space; check available space on the backup target first, since this accounts for the majority of backup failures before considering a corruption issue."
+  },
+  {
+    "kb_number": "KB-DB-DISK-SPACE-LOW-SERVER",
+    "kb_sys_id": "KB-DB-DISK-SPACE-LOW-SERVER",
+    "title": "Server Running Low on Disk Space",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A server nearing full disk space should first have log files and temp directories checked for unexpected growth, since runaway logging is a far more common cause than genuine data growth requiring a capacity increase."
+  },
+  {
+    "kb_number": "KB-DB-SERVER-CERT-EXPIRED",
+    "kb_sys_id": "KB-DB-SERVER-CERT-EXPIRED",
+    "title": "Server's TLS Certificate Has Expired",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "An expired server TLS certificate causing connection failures needs renewal through the certificate management system well before the expiration date in the future; for an already-expired cert, request an emergency renewal to restore service immediately."
+  },
+  {
+    "kb_number": "KB-DB-LOAD-BALANCER-HEALTH-CHECK",
+    "kb_sys_id": "KB-DB-LOAD-BALANCER-HEALTH-CHECK",
+    "title": "Load Balancer Marking Healthy Servers as Down",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A load balancer incorrectly marking healthy application servers as down usually means the health check endpoint itself is failing (e.g. due to a slow dependency) even though the application is otherwise fine; check the health check endpoint's own response time and logic."
+  },
+  {
+    "kb_number": "KB-DB-SCHEDULED-TASK-NOT-TRIGGERING",
+    "kb_sys_id": "KB-DB-SCHEDULED-TASK-NOT-TRIGGERING",
+    "title": "Scheduled Task/Cron Job Not Triggering at the Expected Time",
+    "category": "database",
+    "workflow_state": "published",
+    "body": "A scheduled task that silently never runs is often caused by the host server's task scheduler service itself being stopped, or the scheduled account's credentials having expired; check the scheduler service status before debugging the job's own logic."
+  },
+  {
+    "kb_number": "KB-HOWTO-REQUEST-EQUIPMENT",
+    "kb_sys_id": "KB-HOWTO-REQUEST-EQUIPMENT",
+    "title": "How to Request New Equipment (Laptop, Monitor, Accessories)",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "New equipment requests are submitted through the hardware catalog item, selecting the specific item and business justification; standard requests are fulfilled within the SLA listed on the catalog item itself."
+  },
+  {
+    "kb_number": "KB-HOWTO-SUBMIT-EXPENSE-REPORT",
+    "kb_sys_id": "KB-HOWTO-SUBMIT-EXPENSE-REPORT",
+    "title": "How to Submit an Expense Report",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Expense reports are submitted through the Concur portal by attaching itemized receipts to each expense line and routing for manager approval; reports missing receipts over the policy threshold will be rejected automatically."
+  },
+  {
+    "kb_number": "KB-HOWTO-BOOK-MEETING-ROOM",
+    "kb_sys_id": "KB-HOWTO-BOOK-MEETING-ROOM",
+    "title": "How to Book a Conference Room",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Conference rooms are booked directly through the calendar system's room resource search, which shows real-time availability; recurring bookings should use the recurring meeting option to avoid double-booking conflicts."
+  },
+  {
+    "kb_number": "KB-HOWTO-REQUEST-VPN-ACCESS",
+    "kb_sys_id": "KB-HOWTO-REQUEST-VPN-ACCESS",
+    "title": "How to Request VPN Access for a New Employee",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "VPN access for a new employee is requested through the network access catalog item, specifying the employee's manager for approval; access is typically provisioned within one business day of approval."
+  },
+  {
+    "kb_number": "KB-HOWTO-REQUEST-SOFTWARE-INSTALL",
+    "kb_sys_id": "KB-HOWTO-REQUEST-SOFTWARE-INSTALL",
+    "title": "How to Request a New Software Installation",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "New software installation requests go through the software catalog, which routes to the appropriate approver based on the software's license cost and security classification before IT schedules the install."
+  },
+  {
+    "kb_number": "KB-HOWTO-ESCALATE-P1-INCIDENT",
+    "kb_sys_id": "KB-HOWTO-ESCALATE-P1-INCIDENT",
+    "title": "How to Escalate a Critical (P1) Incident",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "A P1/critical incident should be escalated by calling the 24/7 major incident hotline directly rather than only submitting a ticket, since P1s require immediate phone-based engagement per the incident management process."
+  },
+  {
+    "kb_number": "KB-HOWTO-CHECK-TICKET-STATUS",
+    "kb_sys_id": "KB-HOWTO-CHECK-TICKET-STATUS",
+    "title": "How to Check the Status of a Submitted Ticket",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Ticket status can be checked anytime through the 'My Requests' view in the self-service portal, which shows the current assignment group, state, and any recent work notes visible to the requester."
+  },
+  {
+    "kb_number": "KB-HOWTO-UPDATE-CONTACT-INFO",
+    "kb_sys_id": "KB-HOWTO-UPDATE-CONTACT-INFO",
+    "title": "How to Update Your Contact Information",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Personal contact information (phone number, emergency contact, mailing address) is updated through the HR self-service portal, not through IT or ServiceNow, since it's sourced from the HR system of record."
+  },
+  {
+    "kb_number": "KB-HOWTO-REQUEST-BUILDING-ACCESS",
+    "kb_sys_id": "KB-HOWTO-REQUEST-BUILDING-ACCESS",
+    "title": "How to Request Building Access for Yourself or a Visitor",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Building access requests for employees or visitors go through the facilities access catalog item, which requires a sponsoring manager's approval and generates the appropriate badge or visitor pass."
+  },
+  {
+    "kb_number": "KB-HOWTO-ORDER-PRINTER-SUPPLIES",
+    "kb_sys_id": "KB-HOWTO-ORDER-PRINTER-SUPPLIES",
+    "title": "How to Order Replacement Printer Supplies (Toner, Paper)",
+    "category": "howto",
+    "workflow_state": "published",
+    "body": "Printer supplies like toner cartridges and paper are ordered through the facilities supply catalog item, specifying the printer's asset tag so the correct compatible supplies are shipped to the right location."
+  }
+]

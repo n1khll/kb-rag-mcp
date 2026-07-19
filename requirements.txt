@@ -1,0 +1,10 @@
+mcp>=1.26.0
+uvicorn
+starlette
+psycopg2-binary
+openai
+azure-identity
+pydantic
+pydantic-settings
+python-dotenv
+tiktoken

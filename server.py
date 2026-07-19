@@ -34,6 +34,36 @@ mcp = FastMCP("kb-rag-mcp")
 mcp.settings.stateless_http = True
 
 
+def _configure_allowed_hosts() -> None:
+    """The SDK's DNS-rebinding protection defaults to localhost-only Host headers, which
+    rejects the public deployment hostname (421 Invalid Host header). Real auth here is the
+    bearer token; this just teaches the check to accept the deployment's own host.
+    """
+    s = get_settings()
+    ts = mcp.settings.transport_security
+
+    manual = [h.strip() for h in s.mcp_allowed_hosts.split(",") if h.strip()]
+    if "*" in manual:
+        ts.enable_dns_rebinding_protection = False
+        return
+
+    hosts: list[str] = []
+    if s.render_external_hostname:
+        hosts.append(s.render_external_hostname)
+    hosts.extend(manual)
+
+    for host in hosts:
+        for pattern in (host, f"{host}:*"):
+            if pattern not in ts.allowed_hosts:
+                ts.allowed_hosts.append(pattern)
+        origin = f"https://{host}"
+        if origin not in ts.allowed_origins:
+            ts.allowed_origins.append(origin)
+
+
+_configure_allowed_hosts()
+
+
 @mcp.tool(
     description=(
         "Semantic search over KB articles using hybrid retrieval (vector + full-text) with "

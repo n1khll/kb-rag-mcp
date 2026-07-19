@@ -24,6 +24,13 @@ class Settings(BaseSettings):
     # Empty list = server refuses all tool traffic (fail closed, not open).
     mcp_api_keys: str = Field(default="", alias="MCP_API_KEYS")
 
+    # Extra Host header values to accept (DNS-rebinding allow-list), comma-separated.
+    # Use "*" to disable the check entirely. The Render deployment host is added
+    # automatically from RENDER_EXTERNAL_HOSTNAME, so this is only needed for custom
+    # domains or other hosting platforms.
+    mcp_allowed_hosts: str = Field(default="", alias="MCP_ALLOWED_HOSTS")
+    render_external_hostname: str = Field(default="", alias="RENDER_EXTERNAL_HOSTNAME")
+
     app_log_level: str = Field(default="INFO", alias="APP_LOG_LEVEL")
 
     @property
